@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         val mainBottomNavigationView = findViewById<BottomNavigationView>(R.id.menu_main_bottom)
         mainBottomNavigationView.setOnItemSelectedListener(NavListner())
+        mainBottomNavigationView.selectedItemId = R.id.menu_main_home
 
         val mainFragmentTransaction = mainFragmentManager.beginTransaction()
         mainFragmentTransaction.replace(R.id.layout_main_fragment, mainHomeFragment).commitAllowingStateLoss()
