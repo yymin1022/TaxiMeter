@@ -3,26 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/mainActivity">
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.yong.taximeter.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.yong.taximeter.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        android:id="@+id/mainHomeFragment"
+        android:name="com.yong.taximeter.MainHomeFragment"
+        android:label="MainHomeFragment" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_mainHomeFragment_to_meterActivity"
+            app:destination="@id/meterActivity" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.yong.taximeter.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+        android:id="@+id/mainDonateFragment"
+        android:name="com.yong.taximeter.MainDonateFragment"
+        android:label="MainDonateFragment" />
+    <fragment
+        android:id="@+id/mainSettingFragment"
+        android:name="com.yong.taximeter.MainSettingFragment"
+        android:label="MainSettingFragment" />
+    <activity
+        android:id="@+id/meterActivity"
+        android:name="com.yong.taximeter.MeterActivity"
+        android:label="activity_meter"
+        tools:layout="@layout/activity_meter" />
 </navigation>
