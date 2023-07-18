@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Taxi-Meter</string>
 
+    <string name="fragment_label_donate">Donate Fragment</string>
+    <string name="fragment_label_home">Home Fragment</string>
+    <string name="fragment_label_settiong">Setting Fragment</string>
+
     <string name="menu_main_donate">Donate</string>
     <string name="menu_main_home">Home</string>
     <string name="menu_main_setting">Setting</string>
