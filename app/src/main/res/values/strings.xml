@@ -3,7 +3,7 @@
 
     <string name="activity_label_meter">Meter Activity</string>
 
-    <string name="btn_main_openmeter">Open Meter</string>
+    <string name="btn_home_openmeter">Open Meter</string>
 
     <string name="fragment_label_donate">Donate Fragment</string>
     <string name="fragment_label_home">Home Fragment</string>
