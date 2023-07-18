@@ -5,18 +5,21 @@
     tools:context="com.yong.taximeter.MainActivity">
 
     <item
+        android:icon="@drawable/ic_nav_settings"
         android:id="@+id/menu_main_setting"
         android:orderInCategory="100"
         android:title="@string/menu_main_setting"
         app:showAsAction="never" />
 
     <item
+        android:icon="@drawable/ic_nav_home"
         android:id="@+id/menu_main_home"
         android:orderInCategory="100"
         android:title="@string/menu_main_home"
         app:showAsAction="never" />
 
     <item
+        android:icon="@drawable/ic_nav_donate"
         android:id="@+id/menu_main_donate"
         android:orderInCategory="100"
         android:title="@string/menu_main_donate"
