@@ -6,4 +6,6 @@
     <color name="colorAccent">#757575</color>
     <color name="colorPrimary">#757575</color>
     <color name="colorPrimaryDark">#424242</color>
+
+    <color name="colorSecondaryContainer">#BDBDBD</color>
 </resources>
