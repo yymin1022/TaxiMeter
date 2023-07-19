@@ -8,4 +8,5 @@
     <color name="colorPrimaryDark">#424242</color>
 
     <color name="colorSecondaryContainer">#BDBDBD</color>
+    <color name="colorSecondaryContainerNight">#616161</color>
 </resources>
