@@ -1,2 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string-array name="pref_location">
+        <item>Seoul</item>
+        <item>Gangwon</item>
+        <item>Gyeonggi</item>
+        <item>Gyeongbuk</item>
+        <item>Gyeongnam</item>
+        <item>Gwangju</item>
+        <item>Daegu</item>
+        <item>Daejeon</item>
+        <item>Busan</item>
+        <item>Ulsan</item>
+        <item>Incheon</item>
+        <item>Jeonbuk</item>
+        <item>Jeonnam</item>
+        <item>Jeju</item>
+        <item>Chungbuk</item>
+        <item>Chungnam</item>
+        <item>ETC</item>
+    </string-array>
+</resources>
