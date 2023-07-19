@@ -9,6 +9,6 @@
     <style name="Theme.TaxiMeter" parent="Base.Theme.TaxiMeter" />
 
     <style name="BottomNavigationViewTheme">
-        <item name="colorSecondaryContainer">@color/colorSecondaryContainer</item>
+        <item name="colorSecondaryContainer">@color/colorSecondaryContainerNight</item>
     </style>
 </resources>
