@@ -37,6 +37,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image_home_taxi" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/tv_home_info"
+        android:textSize="25sp"
+        android:id="@+id/tv_home_info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_home_title_taxi" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"
