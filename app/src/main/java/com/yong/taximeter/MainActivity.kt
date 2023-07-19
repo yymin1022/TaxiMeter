@@ -26,8 +26,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
-
         val mainBottomNavigationView = findViewById<BottomNavigationView>(R.id.menu_main_bottom)
         mainBottomNavigationView.setOnItemSelectedListener(NavListner())
         mainBottomNavigationView.selectedItemId = R.id.menu_main_home

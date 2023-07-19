@@ -12,4 +12,8 @@
     <string name="menu_main_donate">Donate</string>
     <string name="menu_main_home">Home</string>
     <string name="menu_main_setting">Setting</string>
+
+    <string name="tv_home_info">Touch to Start</string>
+    <string name="tv_home_title_meter">Meter</string>
+    <string name="tv_home_title_taxi">Taxi</string>
 </resources>
