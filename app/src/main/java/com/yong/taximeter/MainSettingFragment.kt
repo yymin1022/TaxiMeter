@@ -35,12 +35,12 @@ class MainSettingFragment : PreferenceFragmentCompat() {
                 "pref_location" -> {
                     val locationValue = arrLocationKey[arrLocationValue.indexOf(sharedPreferences.getString(key, "seoul"))]
                     updateCostInfo(locationValue)
-                    updateSummary("pref_location", locationValue)
+                    updateSummary(key, locationValue)
                     Log.d("PREFS", sharedPreferences.getString(key, "seoul").toString())
                 }
 
                 "pref_theme" -> {
-                    updateSummary("pref_theme", arrThemeKey[arrThemeValue.indexOf(sharedPreferences.getString(key, "horse"))])
+                    updateSummary(key, arrThemeKey[arrThemeValue.indexOf(sharedPreferences.getString(key, "horse"))])
                     Log.d("PREFS", sharedPreferences.getString(key, "horse").toString())
                 }
             }
