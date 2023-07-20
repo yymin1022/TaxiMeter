@@ -1,0 +1,44 @@
+<androidx.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.preference.PreferenceCategory
+        android:title="@string/pref_category_meter">
+
+        <androidx.preference.ListPreference
+            android:entries="@array/pref_location"
+            android:entryValues="@array/pref_location_value"
+            android:key="pref_location"
+            android:title="@string/pref_title_location" />
+
+        <androidx.preference.ListPreference
+            android:entries="@array/pref_theme"
+            android:entryValues="@array/pref_theme_value"
+            android:key="pref_theme"
+            android:title="@string/pref_title_theme" />
+
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:title="@string/pref_category_meter_info">
+
+        <Preference
+            android:key="pref_info_cost"
+            android:title="@string/pref_title_cost" />
+
+        <Preference
+            android:key="pref_info_version"
+            android:title="@string/pref_title_version" />
+
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:title="@string/pref_category_dev_info">
+
+        <Preference
+            android:key="pref_info_developer"
+            android:title="@string/pref_title_developer"
+            android:summary="@string/pref_summary_developer"/>
+
+    </androidx.preference.PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

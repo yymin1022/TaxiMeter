@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_location">
+        <item>Seoul</item>
+        <item>Gangwon</item>
+        <item>Gyeonggi</item>
+        <item>Gyeongbuk</item>
+        <item>Gyeongnam</item>
+        <item>Gwangju</item>
+        <item>Daegu</item>
+        <item>Daejeon</item>
+        <item>Busan</item>
+        <item>Ulsan</item>
+        <item>Incheon</item>
+        <item>Jeonbuk</item>
+        <item>Jeonnam</item>
+        <item>Jeju</item>
+        <item>Chungbuk</item>
+        <item>Chungnam</item>
+        <item>ETC</item>
+    </string-array>
+
+    <string-array name="pref_location_value">
+        <item>seoul</item>
+        <item>gangwon</item>
+        <item>gyeonggi</item>
+        <item>gyeongbuk</item>
+        <item>gyeongnam</item>
+        <item>gwangju</item>
+        <item>daegu</item>
+        <item>daejeon</item>
+        <item>busan</item>
+        <item>ulsan</item>
+        <item>incheon</item>
+        <item>jeonbuk</item>
+        <item>jeonnam</item>
+        <item>jeju</item>
+        <item>chungbuk</item>
+        <item>chungnam</item>
+        <item>etc</item>
+    </string-array>
+
+    <string-array name="pref_theme">
+        <item>Horse Type</item>
+        <item>Circle Type</item>
+    </string-array>
+
+    <string-array name="pref_theme_value">
+        <item>horse</item>
+        <item>circle</item>
+    </string-array>
+</resources>
