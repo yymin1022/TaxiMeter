@@ -1,17 +1,27 @@
 package com.yong.taximeter
 
+import android.content.SharedPreferences
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
 
-class MainSettingFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_setting, container, false)
+class MainSettingFragment : PreferenceFragmentCompat() {
+    private lateinit var pref: SharedPreferences
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        addPreferencesFromResource(R.xml.settings_items)
+
+        pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
+        pref.registerOnSharedPreferenceChangeListener(prefListener)
     }
+
+    var prefListener = OnSharedPreferenceChangeListener {
+        sharedPreferences, key ->
+            when(key) {
+                "pref_location" -> Log.d("PREFS", sharedPreferences.getString(key, "seoul").toString())
+                "pref_theme" -> Log.d("PREFS", sharedPreferences.getString(key, "horse").toString())
+            }
+        }
 }
