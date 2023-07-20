@@ -2,30 +2,30 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidx.preference.PreferenceCategory
-        android:title="Meter Setup">
+        android:title="@string/pref_category_meter">
 
         <androidx.preference.ListPreference
             android:entries="@array/pref_location"
             android:entryValues="@array/pref_location_value"
             android:key="pref_location"
-            android:title="Location" />
+            android:title="@string/pref_title_location" />
 
         <androidx.preference.ListPreference
             android:entries="@array/pref_theme"
             android:entryValues="@array/pref_theme_value"
             android:key="pref_theme"
-            android:title="Theme" />
+            android:title="@string/pref_title_theme" />
 
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory
-        android:title="Developer Info">
+        android:title="@string/pref_category_dev_info">
 
         <Preference
             android:key="pref_info_developer"
             android:selectable="false"
-            android:title="Dev. LR"
-            android:summary="CAU CSE 2019"/>
+            android:title="@string/pref_item_developer_title"
+            android:summary="@string/pref_item_developer_summary"/>
 
     </androidx.preference.PreferenceCategory>
 
