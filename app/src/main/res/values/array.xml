@@ -20,8 +20,33 @@
         <item>ETC</item>
     </string-array>
 
+    <string-array name="pref_location_values">
+        <item>seoul</item>
+        <item>gangwon</item>
+        <item>gyeonggi</item>
+        <item>gyeongbuk</item>
+        <item>gyeongnam</item>
+        <item>gwangju</item>
+        <item>daegu</item>
+        <item>daejeon</item>
+        <item>busan</item>
+        <item>ulsan</item>
+        <item>incheon</item>
+        <item>jeonbuk</item>
+        <item>jeonnam</item>
+        <item>jeju</item>
+        <item>chungbuk</item>
+        <item>chungnam</item>
+        <item>etc</item>
+    </string-array>
+
     <string-array name="pref_theme">
         <item>Horse Type</item>
         <item>Circle Type</item>
+    </string-array>
+
+    <string-array name="pref_theme_values">
+        <item>horse</item>
+        <item>circle</item>
     </string-array>
 </resources>
