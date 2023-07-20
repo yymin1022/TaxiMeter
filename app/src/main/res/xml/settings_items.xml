@@ -1,16 +1,16 @@
-<PreferenceScreen
+<androidx.preference.PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ListPreference
+    <androidx.preference.ListPreference
         android:entries="@array/pref_location"
         android:entryValues="@array/pref_location"
         android:key="pref_location"
         android:title="Location" />
 
-    <ListPreference
+    <androidx.preference.ListPreference
         android:entries="@array/pref_theme"
         android:entryValues="@array/pref_theme"
         android:key="pref_theme"
         android:title="Theme" />
 
-</PreferenceScreen>
+</androidx.preference.PreferenceScreen>
