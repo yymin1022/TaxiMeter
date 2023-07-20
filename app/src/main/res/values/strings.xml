@@ -21,7 +21,7 @@
     <string name="pref_title_cost">Cost Info</string>
     <string name="pref_title_location">Location</string>
     <string name="pref_title_theme">Meter Theme</string>
-    <string name="pref_title_version">Cost Data Version</string>
+    <string name="pref_title_version">Cost DB Version</string>
 
     <string name="tv_home_info">Touch to Start</string>
     <string name="tv_home_title_meter">Meter</string>
