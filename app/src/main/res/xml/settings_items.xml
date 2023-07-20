@@ -19,13 +19,28 @@
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory
+        android:title="@string/pref_category_meter_info">
+
+        <Preference
+            android:key="pref_info_developer"
+            android:selectable="false"
+            android:title="@string/pref_title_cost" />
+
+        <Preference
+            android:key="pref_info_developer"
+            android:selectable="false"
+            android:title="@string/pref_title_version" />
+
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
         android:title="@string/pref_category_dev_info">
 
         <Preference
             android:key="pref_info_developer"
             android:selectable="false"
-            android:title="@string/pref_item_developer_title"
-            android:summary="@string/pref_item_developer_summary"/>
+            android:title="@string/pref_title_developer"
+            android:summary="@string/pref_summary_developer"/>
 
     </androidx.preference.PreferenceCategory>
 
