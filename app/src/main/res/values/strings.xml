@@ -16,10 +16,12 @@
     <string name="pref_category_dev_info">Developer Info</string>
     <string name="pref_category_meter">Meter Setup</string>
     <string name="pref_category_meter_info">Meter Info</string>
-    <string name="pref_item_developer_summary">CAU CSE 2019</string>
-    <string name="pref_item_developer_title">Dev. LR</string>
+    <string name="pref_summary_developer">CAU CSE 2019</string>
+    <string name="pref_title_developer">Dev. LR</string>
+    <string name="pref_title_cost">Cost Info</string>
     <string name="pref_title_location">Location</string>
     <string name="pref_title_theme">Meter Theme</string>
+    <string name="pref_title_version">Cost Data Version</string>
 
     <string name="tv_home_info">Touch to Start</string>
     <string name="tv_home_title_meter">Meter</string>
