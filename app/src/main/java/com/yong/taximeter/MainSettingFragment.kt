@@ -25,6 +25,8 @@ class MainSettingFragment : PreferenceFragmentCompat() {
 
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         pref.registerOnSharedPreferenceChangeListener(prefListener)
+
+        initSummary()
     }
 
     private var prefListener = OnSharedPreferenceChangeListener {
@@ -43,6 +45,14 @@ class MainSettingFragment : PreferenceFragmentCompat() {
                 }
             }
         }
+
+    private fun initSummary() {
+        val locationValue = arrLocationKey[arrLocationValue.indexOf(pref.getString("pref_location", "seoul"))]
+        updateCostInfo(locationValue)
+        updateSummary("pref_location", locationValue)
+        updateSummary("pref_theme", arrThemeKey[arrThemeValue.indexOf(pref.getString("pref_theme", "horse"))])
+        updateSummary("pref_info_version", pref.getString("pref_info_version", "20001022")!!)
+    }
 
     private fun updateCostInfo(location: String) {
         updateSummary("pref_info_cost", "$location COST_INFO")
