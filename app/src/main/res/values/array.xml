@@ -20,7 +20,7 @@
         <item>ETC</item>
     </string-array>
 
-    <string-array name="pref_location_values">
+    <string-array name="pref_location_value">
         <item>seoul</item>
         <item>gangwon</item>
         <item>gyeonggi</item>
@@ -45,7 +45,7 @@
         <item>Circle Type</item>
     </string-array>
 
-    <string-array name="pref_theme_values">
+    <string-array name="pref_theme_value">
         <item>horse</item>
         <item>circle</item>
     </string-array>
