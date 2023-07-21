@@ -1,4 +1,4 @@
-package com.yong.taximeter
+package com.yong.taximeter.activity
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -9,7 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
+import com.yong.taximeter.fragment.MainDonateFragment
+import com.yong.taximeter.fragment.MainHomeFragment
+import com.yong.taximeter.fragment.MainSettingFragment
+import com.yong.taximeter.R
 import com.yong.taximeter.databinding.ActivityMainBinding
+import com.yong.taximeter.util.FirebaseUtil
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -32,6 +37,8 @@ class MainActivity : AppCompatActivity() {
 
         val mainFragmentTransaction = mainFragmentManager.beginTransaction()
         mainFragmentTransaction.replace(R.id.layout_main_fragment, mainHomeFragment).commitAllowingStateLoss()
+
+        FirebaseUtil.getLatestVersion(this)
     }
 
     inner class NavListner : OnItemSelectedListener, NavigationBarView.OnItemSelectedListener {
