@@ -40,7 +40,7 @@ object FirebaseUtil {
                     val costInfoCity = costInfoItem["city"].toString()
                     val costInfoData = costInfoItem["data"] as Map<*, *>
 
-                    val pref = context.getSharedPreferences("prefs_cost_${costInfoCity}", Context.MODE_PRIVATE)
+                    val pref = context.getSharedPreferences("pref_cost_${costInfoCity}", Context.MODE_PRIVATE)
                     val prefEditor = pref.edit()
 
                     costInfoData.forEach {
