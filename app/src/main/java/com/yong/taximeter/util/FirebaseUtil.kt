@@ -21,7 +21,7 @@ object FirebaseUtil {
                 chkVersion = document.get("data").toString()
 
                 if(curVersion!! < chkVersion) {
-                    updateCostInfo(context)
+                    updateCostInfo(context, chkVersion)
                 }
             }
             .addOnFailureListener { exception ->
@@ -30,7 +30,7 @@ object FirebaseUtil {
             }
     }
 
-    private fun updateCostInfo(context: Context) {
+    private fun updateCostInfo(context: Context, version: String) {
         val db = Firebase.firestore
         val docRef = db.collection("cost").document("info")
         docRef.get()
@@ -48,6 +48,11 @@ object FirebaseUtil {
                     }
                     prefEditor.apply()
                 }
+
+                val pref = PreferenceManager.getDefaultSharedPreferences(context)
+                val prefEditor = pref.edit()
+                prefEditor.putString("pref_info_version", version)
+                prefEditor.apply()
 
                 Toast.makeText(context, context.resources.getString(R.string.firebase_toast_update), Toast.LENGTH_SHORT).show()
             }
