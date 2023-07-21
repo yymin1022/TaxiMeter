@@ -12,7 +12,7 @@ object FirebaseUtil {
     fun getLatestVersion(context: Context) {
         val pref = PreferenceManager.getDefaultSharedPreferences(context)
         var chkVersion: String
-        val curVersion = pref.getString("pref_info_version", "00000000")
+        val curVersion = pref.getString("pref_info_version", "20001022")
 
         val db = Firebase.firestore
         val docRef = db.collection("cost").document("version")
@@ -30,7 +30,7 @@ object FirebaseUtil {
             }
     }
 
-    fun updateCostInfo(context: Context) {
+    private fun updateCostInfo(context: Context) {
         val db = Firebase.firestore
         val docRef = db.collection("cost").document("info")
         docRef.get()
