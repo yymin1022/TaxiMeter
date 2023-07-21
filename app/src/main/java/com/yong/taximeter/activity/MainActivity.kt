@@ -14,6 +14,7 @@ import com.yong.taximeter.fragment.MainHomeFragment
 import com.yong.taximeter.fragment.MainSettingFragment
 import com.yong.taximeter.R
 import com.yong.taximeter.databinding.ActivityMainBinding
+import com.yong.taximeter.util.FirebaseUtil
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity() {
 
         val mainFragmentTransaction = mainFragmentManager.beginTransaction()
         mainFragmentTransaction.replace(R.id.layout_main_fragment, mainHomeFragment).commitAllowingStateLoss()
+
+        FirebaseUtil.getLatestVersion(this)
     }
 
     inner class NavListner : OnItemSelectedListener, NavigationBarView.OnItemSelectedListener {
