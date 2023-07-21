@@ -26,7 +26,7 @@ object FirebaseUtil {
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(context, context.resources.getString(R.string.firebase_toast_fail), Toast.LENGTH_SHORT).show()
-                Log.e("VerCheck", exception.message.toString())
+                Log.e("VerCheckErr", exception.message.toString())
             }
     }
 
@@ -53,7 +53,7 @@ object FirebaseUtil {
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(context, context.resources.getString(R.string.firebase_toast_fail), Toast.LENGTH_SHORT).show()
-                Log.e("VerCheck", exception.message.toString())
+                Log.e("DBUpdateErr", exception.message.toString())
             }
     }
 }
