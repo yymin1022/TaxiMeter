@@ -62,24 +62,28 @@ class MainSettingFragment : PreferenceFragmentCompat() {
     }
 
     private fun updateCostInfo(location: String) {
-        val pref = requireContext().getSharedPreferences("pref_cost_${location}", Context.MODE_PRIVATE)
+        val pref = requireContext().getSharedPreferences("pref_cost_${location}", Context.MODE_PRIVATE)!!
 
-        val costBase = pref?.getInt("cost_base", 0)
-        val costRunPer = pref?.getInt("cost_run_per", 131)
-        val costTimePer = pref?.getInt("cost_time_per", 30)
-        val distBase = pref?.getInt("dist_base", 1600)
-        val percCity = pref?.getInt("perc_city", 20)
-        val percNight1 = pref?.getInt("perc_night_1", 20)
-        val percNight2 = pref?.getInt("perc_night_2", 40)
-        val percNightEnd1 = pref?.getInt("perc_night_end_1", 4)
-        val percNightEnd2 = pref?.getInt("perc_night_end_2", 2)
-        val percNightStart1 = pref?.getInt("perc_night_start_1", 22)
-        val percNightStart2 = pref?.getInt("perc_night_start_2", 23)
+        val costBase = pref.getInt("cost_base", 0)
+        val costRunPer = pref.getInt("cost_run_per", 131)
+        val costTimePer = pref.getInt("cost_time_per", 30)
+        val distBase = pref.getInt("dist_base", 1600)
+        val percCity = pref.getInt("perc_city", 20)
+        val percNight1 = pref.getInt("perc_night_1", 20)
+        val percNight2 = pref.getInt("perc_night_2", 40)
+        val percNightEnd1 = pref.getInt("perc_night_end_1", 4)
+        val percNightEnd2 = pref.getInt("perc_night_end_2", 2)
+        val percNightStart1 = pref.getInt("perc_night_start_1", 22)
+        val percNightStart2 = pref.getInt("perc_night_start_2", 23)
 
         val strCostInfo = if(percNight1 != percNight2) {
-            String.format(resources.getString(R.string.pref_summary_cost_1), costBase, distBase, costRunPer, costTimePer, percCity, percNight1, percNightStart1, percNightEnd1, percNight2, percNightStart2, percNightEnd2)
+            String.format(resources.getString(R.string.pref_summary_cost_1),
+                costBase, (distBase.toFloat()).div(1000), costRunPer, costTimePer, percCity,
+                percNight1, percNightStart1, percNightEnd1, percNight2, percNightStart2, percNightEnd2)
         }else{
-            String.format(resources.getString(R.string.pref_summary_cost_2), costBase, distBase, costRunPer, costTimePer, percCity, percNight1, percNightStart1, percNightEnd1)
+            String.format(resources.getString(R.string.pref_summary_cost_2),
+                costBase, (distBase.toFloat()).div(1000), costRunPer, costTimePer, percCity,
+                percNight1, percNightStart1, percNightEnd1)
         }
 
         updateSummary(PREF_KEY_INFO_COST, strCostInfo)
