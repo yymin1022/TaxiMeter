@@ -1,4 +1,4 @@
-package com.yong.taximeter
+package com.yong.taximeter.fragment
 
 import android.content.SharedPreferences
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener
@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
+import com.yong.taximeter.R
 
 const val PREF_KEY_LOCATION = "pref_location"
 const val PREF_KEY_THEME = "pref_theme"
@@ -51,7 +52,9 @@ class MainSettingFragment : PreferenceFragmentCompat() {
         val locationValue = arrLocationKey[arrLocationValue.indexOf(pref.getString(PREF_KEY_LOCATION, "seoul"))]
         updateCostInfo(locationValue)
         updateSummary(PREF_KEY_LOCATION, locationValue)
-        updateSummary(PREF_KEY_THEME, arrThemeKey[arrThemeValue.indexOf(pref.getString(PREF_KEY_THEME, "horse"))])
+        updateSummary(
+            PREF_KEY_THEME, arrThemeKey[arrThemeValue.indexOf(pref.getString(
+                PREF_KEY_THEME, "horse"))])
         updateSummary(PREF_KEY_INFO_VERSION, pref.getString(PREF_KEY_INFO_VERSION, "20001022")!!)
     }
 

@@ -1,4 +1,4 @@
-package com.yong.taximeter
+package com.yong.taximeter.fragment
 
 import android.content.Intent
 import android.content.res.Configuration
@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources
+import com.yong.taximeter.R
+import com.yong.taximeter.activity.MeterActivity
 
 class MainHomeFragment : Fragment() {
     override fun onCreateView(
@@ -22,9 +24,13 @@ class MainHomeFragment : Fragment() {
         btnOpenMeter.setOnClickListener { startActivity(Intent(context, MeterActivity::class.java)) }
 
         val imageTaxi = baseView.findViewById<ImageView>(R.id.image_home_taxi)
-        imageTaxi.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_main_taxi_light))
+        imageTaxi.setImageDrawable(AppCompatResources.getDrawable(requireContext(),
+            R.drawable.ic_main_taxi_light
+        ))
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && isUsingNightModeResources()) {
-            imageTaxi.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_main_taxi_dark))
+            imageTaxi.setImageDrawable(AppCompatResources.getDrawable(requireContext(),
+                R.drawable.ic_main_taxi_dark
+            ))
         }
 
         return baseView

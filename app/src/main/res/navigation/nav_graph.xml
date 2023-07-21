@@ -6,12 +6,12 @@
     app:startDestination="@id/mainActivity">
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.yong.taximeter.MainActivity"
+        android:name="com.yong.taximeter.activity.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
     <fragment
         android:id="@+id/mainHomeFragment"
-        android:name="com.yong.taximeter.MainHomeFragment"
+        android:name="com.yong.taximeter.fragment.MainHomeFragment"
         android:label="MainHomeFragment" >
         <action
             android:id="@+id/action_mainHomeFragment_to_meterActivity"
@@ -19,15 +19,15 @@
     </fragment>
     <fragment
         android:id="@+id/mainDonateFragment"
-        android:name="com.yong.taximeter.MainDonateFragment"
+        android:name="com.yong.taximeter.fragment.MainDonateFragment"
         android:label="MainDonateFragment" />
     <fragment
         android:id="@+id/mainSettingFragment"
-        android:name="com.yong.taximeter.MainSettingFragment"
+        android:name="com.yong.taximeter.fragment.MainSettingFragment"
         android:label="MainSettingFragment" />
     <activity
         android:id="@+id/meterActivity"
-        android:name="com.yong.taximeter.MeterActivity"
+        android:name="com.yong.taximeter.activity.MeterActivity"
         android:label="activity_meter"
         tools:layout="@layout/activity_meter" />
 </navigation>

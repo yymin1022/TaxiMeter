@@ -1,4 +1,4 @@
-package com.yong.taximeter
+package com.yong.taximeter.activity
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -9,6 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
+import com.yong.taximeter.fragment.MainDonateFragment
+import com.yong.taximeter.fragment.MainHomeFragment
+import com.yong.taximeter.fragment.MainSettingFragment
+import com.yong.taximeter.R
 import com.yong.taximeter.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
