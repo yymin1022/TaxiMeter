@@ -19,8 +19,8 @@
     <string name="pref_category_dev_info">Developer Info</string>
     <string name="pref_category_meter">Meter Setup</string>
     <string name="pref_category_meter_info">Meter Info</string>
-    <string name="pref_summary_cost_1">Base Cost : %d (First %d km)\n100 Won per %dm\n100 Won per %dsecs\nOuter City Premium %d%%\nNight Premium\n - %d%% when %d:00 ~ %d:00\n - %d%% when %d:00 ~ %d:00</string>
-    <string name="pref_summary_cost_2">Base Cost : %d (First %d km)\n100 Won per %dm\n100 Won per %dsecs\nOuter City Premium %d%%\nNight Premium %d%% when %d:00 ~ %d:00</string>
+    <string name="pref_summary_cost_1">Base Cost : %d (First %.1fkm)\n100 Won per %dm\n100 Won per %dsecs\nOuter City Premium %d%%\nNight Premium\n - %d%% when %d:00 ~ %d:00\n - %d%% when %d:00 ~ %d:00</string>
+    <string name="pref_summary_cost_2">Base Cost : %d (First %.1fkm)\n100 Won per %dm\n100 Won per %dsecs\nOuter City Premium %d%%\nNight Premium %d%% when %d:00 ~ %d:00</string>
     <string name="pref_summary_developer">CAU CSE 2019</string>
     <string name="pref_title_developer">Dev. LR</string>
     <string name="pref_title_cost">Cost Info</string>
