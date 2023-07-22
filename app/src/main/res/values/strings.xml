@@ -37,8 +37,10 @@
     <string name="tv_home_info">Touch to Start</string>
     <string name="tv_home_title_meter">Meter</string>
     <string name="tv_home_title_taxi">Taxi</string>
+    <string name="tv_meter_info_cost">%d Won</string>
     <string name="tv_meter_info_cost_type">Cost Type\nDISTANCE</string>
     <string name="tv_meter_info_cost_type_2">Cost Type\nDISTANCE</string>
     <string name="tv_meter_info_distance">Drived Distance\n2000km</string>
+    <string name="tv_meter_info_number">1400</string>
     <string name="tv_meter_info_speed">Current Speed\n40km/h</string>
 </resources>
