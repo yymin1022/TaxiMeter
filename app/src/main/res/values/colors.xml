@@ -15,7 +15,7 @@
     <color name="meterBtnGreen">#99ee90</color>
     <color name="meterBtnRed">#ffdb7093</color>
     <color name="meterBtnYellow">#ffffed83</color>
-    <color name="ç">#444444</color>
+    <color name="meterBtnText">#444444</color>
     <color name="meterTextColorGray">#EEEEEE</color>
     <color name="meterTextColorWhite">#CCCCCC</color>
 </resources>
