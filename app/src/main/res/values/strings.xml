@@ -4,6 +4,12 @@
     <string name="activity_label_meter">Meter Activity</string>
 
     <string name="btn_home_openmeter">Open Meter</string>
+    <string name="btn_meter_premium_night_off">Night Prm OFF</string>
+    <string name="btn_meter_premium_night_on">Night Prm ON</string>
+    <string name="btn_meter_premium_outcity_off">Outcity Prm OFF</string>
+    <string name="btn_meter_premium_outcity_on">Outcity Prmm ON</string>
+    <string name="btn_meter_start">Start Driving</string>
+    <string name="btn_meter_stop">Stop Driving</string>
 
     <string name="firebase_toast_fail">Failed to get Cost DB Version</string>
     <string name="firebase_toast_update">Updated Cost DB to Latest</string>
@@ -12,6 +18,8 @@
     <string name="fragment_label_home">Home Fragment</string>
     <string name="fragment_label_setting">Setting Fragment</string>
 
+    <string name="iv_desc_meter_runner">Meter Runner</string>
+
     <string name="menu_main_donate">Donate</string>
     <string name="menu_main_home">Home</string>
     <string name="menu_main_setting">Setting</string>
@@ -19,8 +27,8 @@
     <string name="pref_category_dev_info">Developer Info</string>
     <string name="pref_category_meter">Meter Setup</string>
     <string name="pref_category_meter_info">Meter Info</string>
-    <string name="pref_summary_cost_1">Base Cost : %d (First %.1fkm)\n100 Won per %dm\n100 Won per %dsecs\nOuter City Premium %d%%\nNight Premium\n - %d%% when %d:00 ~ %d:00\n - %d%% when %d:00 ~ %d:00</string>
-    <string name="pref_summary_cost_2">Base Cost : %d (First %.1fkm)\n100 Won per %dm\n100 Won per %dsecs\nOuter City Premium %d%%\nNight Premium %d%% when %d:00 ~ %d:00</string>
+    <string name="pref_summary_cost_1">Base Cost : %,d Won (First %.1fkm)\n100 Won per %dm\n100 Won per %dsecs\nOuter City Premium %d%%\nNight Premium\n - %d%% when %d:00 ~ %d:00\n - %d%% when %d:00 ~ %d:00</string>
+    <string name="pref_summary_cost_2">Base Cost : %,d Won (First %.1fkm)\n100 Won per %dm\n100 Won per %dsecs\nOuter City Premium %d%%\nNight Premium %d%% when %d:00 ~ %d:00</string>
     <string name="pref_summary_developer">CAU CSE 2019</string>
     <string name="pref_title_developer">Dev. LR</string>
     <string name="pref_title_cost">Cost Info</string>
@@ -31,4 +39,12 @@
     <string name="tv_home_info">Touch to Start</string>
     <string name="tv_home_title_meter">Meter</string>
     <string name="tv_home_title_taxi">Taxi</string>
+    <string name="tv_meter_info_cost">%,d Won</string>
+    <string name="tv_meter_info_cost_type">Cost Type\n%s</string>
+    <string name="tv_meter_info_distance">Drove Distance\n%dkm</string>
+    <string name="tv_meter_info_premium_night">Night Premium Enabled</string>
+    <string name="tv_meter_info_premium_outcity">Outcity Premium Enabled</string>
+    <string name="tv_meter_info_number">%d</string>
+    <string name="tv_meter_info_speed">Current Speed\n%dkm/h</string>
+    <string name="tv_meter_info_status">Status\n%s</string>
 </resources>

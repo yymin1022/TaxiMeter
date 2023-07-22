@@ -9,4 +9,14 @@
 
     <color name="colorSecondaryContainer">#BDBDBD</color>
     <color name="colorSecondaryContainerNight">#616161</color>
+
+    <color name="meterBackground">#111111</color>
+    <color name="meterBlue">#ff87ceeb</color>
+    <color name="meterGreen">#99ee90</color>
+    <color name="meterMint">#61D0BB</color>
+    <color name="meterRed">#ffdb7093</color>
+    <color name="meterYellow">#ffffed83</color>
+    <color name="meterBtnText">#444444</color>
+    <color name="meterTextColorGray">#EEEEEE</color>
+    <color name="meterTextColorWhite">#CCCCCC</color>
 </resources>
