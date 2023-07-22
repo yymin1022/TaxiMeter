@@ -37,7 +37,7 @@ class MeterActivity : AppCompatActivity() {
         tvCost.text = String.format(resources.getString(R.string.tv_meter_info_cost), 0)
         tvCostType.text = String.format(resources.getString(R.string.tv_meter_info_cost_type), 0)
         tvCounter.text = String.format(resources.getString(R.string.tv_meter_info_counter), 0)
-        tvDistance.text = String.format(resources.getString(R.string.tv_meter_info_distance), 0)
+        tvDistance.text = String.format(resources.getString(R.string.tv_meter_info_distance), 0.0)
         tvSpeed.text = String.format(resources.getString(R.string.tv_meter_info_speed), 0)
         tvStatus.text = String.format(resources.getString(R.string.tv_meter_info_status), "Not Driving")
 
