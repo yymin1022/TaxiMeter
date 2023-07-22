@@ -5,15 +5,165 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/meterBackground"
     tools:context=".activity.MeterActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/activity_label_meter"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="35dp"
+        android:text="@string/tv_meter_info_number"
+        android:textAlignment="textEnd"
+        android:textColor="@color/meterTextColorGray"
+        android:textSize="20sp"
+        android:id="@+id/tv_meter_info_number"
+        app:layout_constraintEnd_toStartOf="@id/iv_meter_runner"
+        app:layout_constraintBottom_toTopOf="@id/tv_meter_info_cost"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="@string/iv_desc_meter_runner"
+        android:id="@+id/iv_meter_runner"
+        android:src="@drawable/ic_horse_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_meter_info_cost"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/tv_meter_info_cost"
+        android:textAlignment="textEnd"
+        android:textColor="@color/meterTextColorWhite"
+        android:textSize="50sp"
+        android:id="@+id/tv_meter_info_cost"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_meter_info_cost_type"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/tv_meter_info_cost_type"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/meterTextColorGray"
+        android:textSize="20sp"
+        android:id="@+id/tv_meter_info_cost_type"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_meter_info_cost_type2"
+        app:layout_constraintBottom_toTopOf="@id/tv_meter_info_speed" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/tv_meter_info_cost_type_2"
+        android:textAlignment="viewStart"
+        android:textColor="@color/meterTextColorGray"
+        android:textSize="20sp"
+        android:id="@+id/tv_meter_info_cost_type2"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintStart_toEndOf="@id/tv_meter_info_cost_type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_meter_info_distance" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/tv_meter_info_speed"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/meterTextColorGray"
+        android:textSize="20sp"
+        android:id="@+id/tv_meter_info_speed"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_meter_info_distance"
+        app:layout_constraintBottom_toTopOf="@id/btn_meter_start" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/tv_meter_info_distance"
+        android:textAlignment="viewStart"
+        android:textColor="@color/meterTextColorGray"
+        android:textSize="20sp"
+        android:id="@+id/tv_meter_info_distance"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@id/btn_meter_stop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_meter_info_speed" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/btn_meter_start"
+        android:textSize="15sp"
+        android:background="@drawable/btn_meter_blue"
+        android:id="@+id/btn_meter_start"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_meter_stop"
+        app:layout_constraintBottom_toTopOf="@id/btn_meter_premium_night" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/btn_meter_stop"
+        android:textSize="15sp"
+        android:background="@drawable/btn_meter_yellow"
+        android:id="@+id/btn_meter_stop"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintStart_toEndOf="@id/btn_meter_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_meter_premium_outcity" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/btn_meter_premium_night_off"
+        android:textSize="15sp"
+        android:background="@drawable/btn_meter_green"
+        android:id="@+id/btn_meter_premium_night"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_meter_premium_outcity"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/btn_meter_premium_outcity_off"
+        android:textSize="15sp"
+        android:background="@drawable/btn_meter_red"
+        android:id="@+id/btn_meter_premium_outcity"
+        app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/btn_meter_premium_night" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
