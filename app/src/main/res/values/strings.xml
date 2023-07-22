@@ -41,7 +41,7 @@
     <string name="tv_home_title_taxi">Taxi</string>
     <string name="tv_meter_info_cost">%,d Won</string>
     <string name="tv_meter_info_cost_type">Cost Type\n%s</string>
-    <string name="tv_meter_info_distance">Drove Distance\n%dkm</string>
+    <string name="tv_meter_info_distance">Drove Distance\n%.1fkm</string>
     <string name="tv_meter_info_premium_night">Night Premium Enabled</string>
     <string name="tv_meter_info_premium_outcity">Outcity Premium Enabled</string>
     <string name="tv_meter_info_counter">%d</string>
