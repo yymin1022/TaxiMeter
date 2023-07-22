@@ -45,9 +45,7 @@ object MeterUtil {
 
     fun init(context: Context) {
         pref = PreferenceManager.getDefaultSharedPreferences(context)
-
         val locationPrefs = pref.getString("pref_location", "seoul")
-
         pref = context.getSharedPreferences("pref_cost_${locationPrefs}", Context.MODE_PRIVATE)!!
 
         costBase = pref.getInt("cost_base", 0)
