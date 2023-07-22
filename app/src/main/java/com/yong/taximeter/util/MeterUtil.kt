@@ -19,6 +19,11 @@ enum class MeterStatus {
     GPS_UNSTABLE
 }
 
+enum class MeterTheme {
+    THEME_CIRCLE,
+    THEME_HORSE
+}
+
 object MeterUtil {
     private lateinit var pref: SharedPreferences
     private var costBase = 0
@@ -39,6 +44,7 @@ object MeterUtil {
     var distance = 0.0
     var speed = 0
     var status = MeterStatus.NOT_DRIVING
+    var theme = MeterTheme.THEME_HORSE
 
     var isPrmNight = false
     var isPrmOutcity = false
@@ -46,8 +52,9 @@ object MeterUtil {
     fun init(context: Context) {
         pref = PreferenceManager.getDefaultSharedPreferences(context)
         val locationPrefs = pref.getString("pref_location", "seoul")
-        pref = context.getSharedPreferences("pref_cost_${locationPrefs}", Context.MODE_PRIVATE)!!
+        theme = if(pref.getString("pref_theme", "horse") == "circle") MeterTheme.THEME_CIRCLE else MeterTheme.THEME_HORSE
 
+        pref = context.getSharedPreferences("pref_cost_${locationPrefs}", Context.MODE_PRIVATE)!!
         costBase = pref.getInt("cost_base", 0)
         costRunPer = pref.getInt("cost_run_per", 131)
         costTimePer = pref.getInt("cost_time_per", 30)
