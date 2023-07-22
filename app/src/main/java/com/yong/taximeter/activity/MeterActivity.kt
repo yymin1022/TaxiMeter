@@ -53,20 +53,20 @@ class MeterActivity : AppCompatActivity() {
 
         when(MeterUtil.costType) {
             CostType.BASE_COST ->
-                tvCostType.text = String.format(resources.getString(R.string.tv_meter_info_cost_type), "Base Cost")
+                tvCostType.text = resources.getString(R.string.tv_meter_info_cost_type_base)
             CostType.DISTANCE_COST ->
-                tvCostType.text = String.format(resources.getString(R.string.tv_meter_info_cost_type), "Distance Cost")
+                tvCostType.text = resources.getString(R.string.tv_meter_info_cost_type_distance)
             CostType.TIME_COST ->
-                tvCostType.text = String.format(resources.getString(R.string.tv_meter_info_cost_type), "Time Cost")
+                tvCostType.text = resources.getString(R.string.tv_meter_info_cost_type_time)
         }
 
         when(MeterUtil.status) {
             MeterStatus.NOT_DRIVING ->
-                tvStatus.text = String.format(resources.getString(R.string.tv_meter_info_status), "Not Driving")
+                tvStatus.text = resources.getString(R.string.tv_meter_info_status_not_driving)
             MeterStatus.DRIVING ->
-                tvStatus.text = String.format(resources.getString(R.string.tv_meter_info_status), "Driving")
+                tvStatus.text = resources.getString(R.string.tv_meter_info_status_driving)
             MeterStatus.GPS_UNSTABLE ->
-                tvStatus.text = String.format(resources.getString(R.string.tv_meter_info_status), "Unstable GPS")
+                tvStatus.text = resources.getString(R.string.tv_meter_info_status_gps_unstable)
         }
 
         tvPremiumNight.visibility = if(MeterUtil.isPrmNight) View.VISIBLE else View.GONE
