@@ -8,6 +8,32 @@
     android:background="@color/meterBackground"
     tools:context=".activity.MeterActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/tv_meter_info_premium_outcity"
+        android:textColor="@color/meterTextColorWhite"
+        android:textSize="20sp"
+        android:visibility="gone"
+        android:id="@+id/tv_meter_premium_outcity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/tv_meter_info_premium_night"
+        android:textColor="@color/meterTextColorWhite"
+        android:textSize="20sp"
+        android:visibility="gone"
+        android:id="@+id/tv_meter_premium_night"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_meter_premium_outcity" />
+
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
