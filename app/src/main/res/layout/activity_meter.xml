@@ -16,7 +16,6 @@
         android:text="@string/tv_meter_info_premium_outcity"
         android:textColor="@color/meterTextColorWhite"
         android:textSize="20sp"
-        android:visibility="gone"
         android:id="@+id/tv_meter_premium_outcity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +28,6 @@
         android:text="@string/tv_meter_info_premium_night"
         android:textColor="@color/meterTextColorWhite"
         android:textSize="20sp"
-        android:visibility="visible"
         android:id="@+id/tv_meter_premium_night"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_meter_premium_outcity" />
