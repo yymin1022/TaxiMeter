@@ -44,7 +44,7 @@
     <string name="tv_meter_info_distance">Drove Distance\n%dkm</string>
     <string name="tv_meter_info_premium_night">Night Premium Enabled</string>
     <string name="tv_meter_info_premium_outcity">Outcity Premium Enabled</string>
-    <string name="tv_meter_info_number">%d</string>
+    <string name="tv_meter_info_counter">%d</string>
     <string name="tv_meter_info_speed">Current Speed\n%dkm/h</string>
     <string name="tv_meter_info_status">Status\n%s</string>
 </resources>
