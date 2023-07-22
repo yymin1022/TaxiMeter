@@ -1,6 +1,7 @@
 package com.yong.taximeter.activity
 
 import android.graphics.drawable.AnimationDrawable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -53,7 +54,7 @@ class MeterActivity : AppCompatActivity() {
     }
 
     private fun updateView() {
-        updateRunner(MeterUtil.speed, MeterUtil.theme)
+        ivRunner.setImageDrawable(updateRunner(MeterUtil.speed, MeterUtil.theme))
 
         tvCost.text = String.format(resources.getString(R.string.tv_meter_info_cost), MeterUtil.cost)
         tvCounter.text = String.format(resources.getString(R.string.tv_meter_info_counter), MeterUtil.counter)
@@ -82,7 +83,7 @@ class MeterActivity : AppCompatActivity() {
         tvPremiumOutcity.visibility = if(MeterUtil.isPrmOutcity) View.VISIBLE else View.GONE
     }
 
-    private fun updateRunner(speed: Int, theme: MeterTheme) {
+    private fun updateRunner(speed: Int, theme: MeterTheme): Drawable {
         val animDrawable = AnimationDrawable()
         when(theme) {
             MeterTheme.THEME_CIRCLE -> {
@@ -136,38 +137,41 @@ class MeterActivity : AppCompatActivity() {
             MeterTheme.THEME_HORSE -> {
                 if(speed > 50) {
                     for (i in 0..7) {
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_1)!!, 47)
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_2)!!, 47)
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_3)!!, 48)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_1)!!, 47)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_2)!!, 47)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_3)!!, 48)
                     }
                 } else if(speed > 30) {
                     for (i in 0..5) {
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_1)!!, 66)
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_2)!!, 67)
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_3)!!, 67)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_1)!!, 66)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_2)!!, 67)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_3)!!, 67)
                     }
                 } else if(speed > 20) {
                     for (i in 0..4) {
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_1)!!, 83)
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_2)!!, 83)
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_3)!!, 84)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_1)!!, 83)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_2)!!, 83)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_3)!!, 84)
                     }
                 } else if(speed > 10) {
                     for (i in 0..3) {
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_1)!!, 111)
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_2)!!, 111)
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_3)!!, 111)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_1)!!, 111)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_2)!!, 111)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_3)!!, 111)
                     }
                 } else if(speed > 0) {
                     for (i in 0..2) {
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_1)!!, 166)
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_2)!!, 166)
-                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_3)!!, 167)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_1)!!, 166)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_2)!!, 166)
+                        animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_3)!!, 167)
                     }
                 } else {
-                    animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_circle_1)!!, 1000)
+                    animDrawable.addFrame(AppCompatResources.getDrawable(applicationContext, R.drawable.ic_horse_1)!!, 1000)
                 }
             }
         }
+
+        animDrawable.start()
+        return animDrawable
     }
 }

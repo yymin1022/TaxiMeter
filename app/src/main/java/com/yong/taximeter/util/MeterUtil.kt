@@ -52,7 +52,7 @@ object MeterUtil {
     fun init(context: Context) {
         pref = PreferenceManager.getDefaultSharedPreferences(context)
         val locationPrefs = pref.getString("pref_location", "seoul")
-        theme = if(pref.getString("pref_theme", "horse") == "circle") MeterTheme.THEME_CIRCLE else MeterTheme.THEME_HORSE
+        theme = if(pref.getString("pref_theme", "horse").equals("circle")) MeterTheme.THEME_CIRCLE else MeterTheme.THEME_HORSE
 
         pref = context.getSharedPreferences("pref_cost_${locationPrefs}", Context.MODE_PRIVATE)!!
         costBase = pref.getInt("cost_base", 0)
