@@ -1,4 +1,4 @@
 package com.yong.taximeter.util
 
-class CostUtil {
+object MeterData {
 }
