@@ -27,6 +27,7 @@
     <string name="noti_channel_description">Notification when Meter Service is Running</string>
     <string name="noti_channel_id">DEFAULT_NOTI</string>
     <string name="noti_channel_title">Running Notification</string>
+    <string name="noti_toast_no_permission">Location Permission is not Granted. Please Grant for Meter.</string>
 
     <string name="pref_category_dev_info">Developer Info</string>
     <string name="pref_category_meter">Meter Setup</string>
