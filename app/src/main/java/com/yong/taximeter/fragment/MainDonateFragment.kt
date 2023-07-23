@@ -123,7 +123,8 @@ class MainDonateFragment : Fragment() {
         } else if(billingResult.responseCode == BillingResponseCode.USER_CANCELED) {
             Toast.makeText(requireContext(), "Cancelled", Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(requireContext(), "Error : ${billingResult.debugMessage}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Error ${billingResult.responseCode} : ${billingResult.debugMessage}", Toast.LENGTH_SHORT).show()
+            Log.e("PURCHASE_UPDATE", billingResult.debugMessage)
         }
     }
 
