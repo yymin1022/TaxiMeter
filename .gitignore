@@ -9,3 +9,5 @@
 .cxx
 local.properties
 google-services.json
+release/
+debug/
