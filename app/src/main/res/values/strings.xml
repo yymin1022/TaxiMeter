@@ -24,6 +24,10 @@
     <string name="menu_main_home">Home</string>
     <string name="menu_main_setting">Setting</string>
 
+    <string name="noti_channel_description">Notification when Meter Service is Running</string>
+    <string name="noti_channel_id">DEFAULT_NOTI</string>
+    <string name="noti_channel_title">Running Notification</string>
+
     <string name="pref_category_dev_info">Developer Info</string>
     <string name="pref_category_meter">Meter Setup</string>
     <string name="pref_category_meter_info">Meter Info</string>
