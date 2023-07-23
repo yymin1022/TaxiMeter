@@ -39,6 +39,9 @@ class MeterService: Service(), LocationListener {
     override fun onLocationChanged(location: Location) {
         val curSpeed = location.speed.toInt()
         MeterUtil.increaseCost(curSpeed)
+
+        val intent = Intent("UPDATE_METER")
+        sendBroadcast(intent)
     }
 
     override fun onBind(p0: Intent?): IBinder? {
