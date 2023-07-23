@@ -146,6 +146,10 @@ class MeterActivity : AppCompatActivity() {
     }
 
     private fun initView() {
+        if(!MeterUtil.isDriving) {
+            MeterUtil.init(this)
+        }
+
         updateView()
 
         btnPrmNight.setOnClickListener(btnListener)
