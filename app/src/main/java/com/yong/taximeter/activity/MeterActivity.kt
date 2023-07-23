@@ -6,7 +6,9 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.drawable.AnimationDrawable
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -20,6 +22,7 @@ import com.yong.taximeter.util.CostType
 import com.yong.taximeter.util.MeterStatus
 import com.yong.taximeter.util.MeterTheme
 import com.yong.taximeter.util.MeterUtil
+import com.yong.taximeter.util.PermissionUtil
 import kotlin.math.roundToInt
 
 
@@ -102,6 +105,16 @@ class MeterActivity : AppCompatActivity() {
         tvPremiumOutcity = findViewById(R.id.tv_meter_premium_outcity)
         tvSpeed = findViewById(R.id.tv_meter_info_speed)
         tvStatus = findViewById(R.id.tv_meter_info_status)
+
+        if(!PermissionUtil.checkPermission(this)) {
+            val intent = Intent().apply {
+                action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                addCategory(Intent.CATEGORY_DEFAULT)
+                data = Uri.parse("package:${packageName}")
+            }
+            startActivity(intent)
+            finish()
+        }
 
         initView()
     }
