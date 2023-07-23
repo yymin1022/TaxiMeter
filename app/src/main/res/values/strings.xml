@@ -44,6 +44,12 @@
     <string name="pref_title_theme">Meter Theme</string>
     <string name="pref_title_version">Cost DB Version</string>
 
+    <string name="tv_donate_adremove">AD Remove</string>
+    <string name="tv_donate_bigmac">$10 BigMac</string>
+    <string name="tv_donate_coffee">$5 Starbucks</string>
+    <string name="tv_donate_coke">$1 Coke</string>
+    <string name="tv_donate_dinner">$50 Dinner Course</string>
+    <string name="tv_donate_money">Paypal</string>
     <string name="tv_home_info">Touch to Start</string>
     <string name="tv_home_title_meter">Meter</string>
     <string name="tv_home_title_taxi">Taxi</string>
