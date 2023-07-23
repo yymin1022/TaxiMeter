@@ -9,8 +9,10 @@ import android.content.Intent
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import android.net.Uri
 import android.os.Build
 import android.os.IBinder
+import android.provider.Settings
 import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.yong.taximeter.R
@@ -25,6 +27,7 @@ class MeterService: Service(), LocationListener {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         if(!PermissionUtil.checkPermission(this)){
+            PermissionUtil.openAppInfo(this)
             stopSelf()
         }
 
