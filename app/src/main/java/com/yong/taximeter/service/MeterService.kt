@@ -64,10 +64,10 @@ class MeterService: Service(), LocationListener {
         val pendingIntent = PendingIntent.getActivity(this, 0, notiIntent, PendingIntent.FLAG_IMMUTABLE)
 
         createNotificationChannel()
-        notificationBuilder = NotificationCompat.Builder(this, "CHANNEL")
+        notificationBuilder = NotificationCompat.Builder(this, getString(R.string.noti_channel_id))
             .setSmallIcon(R.drawable.ic_horse_1)
-            .setContentTitle("Taxi Meter")
-            .setContentText("Taxi Meter is Running")
+            .setContentTitle(getString(R.string.app_name))
+            .setContentText(getString(R.string.noti_channel_description))
             .setPriority(NotificationCompat.PRIORITY_MIN)
             .setContentIntent(pendingIntent)
             .setAutoCancel(false)
@@ -77,10 +77,10 @@ class MeterService: Service(), LocationListener {
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "CHANNEL"
-            val descriptionText = "CHANNEL DESCRIPTION"
+            val name = getString(R.string.noti_channel_title)
+            val descriptionText = getString(R.string.noti_channel_description)
             val importance = NotificationManager.IMPORTANCE_MIN
-            val channel = NotificationChannel("CHANNEL", name, importance).apply {
+            val channel = NotificationChannel(getString(R.string.noti_channel_id), name, importance).apply {
                 description = descriptionText
             }
 
