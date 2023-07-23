@@ -90,7 +90,7 @@ object MeterUtil {
         distance += speed / 2
 
         if(speed < 4.2) {
-            counter -= costRunPer / costTimePer
+            counter -= costRunPer / costTimePer / 2
 
             if(costType == CostType.DISTANCE_COST) {
                 costType = CostType.TIME_COST
