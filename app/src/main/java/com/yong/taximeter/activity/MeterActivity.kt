@@ -7,13 +7,15 @@ import android.content.IntentFilter
 import android.graphics.drawable.AnimationDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.widget.AppCompatButton
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.yong.taximeter.R
+import com.yong.taximeter.service.MeterService
 import com.yong.taximeter.util.CostType
 import com.yong.taximeter.util.MeterStatus
 import com.yong.taximeter.util.MeterTheme
@@ -21,6 +23,10 @@ import com.yong.taximeter.util.MeterUtil
 
 
 class MeterActivity : AppCompatActivity() {
+    private lateinit var btnPrmNight: AppCompatButton
+    private lateinit var btnPrmOutcity: AppCompatButton
+    private lateinit var btnStart: AppCompatButton
+    private lateinit var btnStop: AppCompatButton
     private lateinit var ivRunner: ImageView
     private lateinit var tvCost: TextView
     private lateinit var tvCostType: TextView
@@ -31,20 +37,48 @@ class MeterActivity : AppCompatActivity() {
     private lateinit var tvSpeed: TextView
     private lateinit var tvStatus: TextView
 
-    private var statusReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+    private var statusReceiver: BroadcastReceiver = object: BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent) {
             if(intent.action != null && intent.action.equals("METER_STATUS")) {
-                Log.d("METER_STATUS", MeterUtil.status.toString())
                 updateView()
             }
         }
     }
 
-    private var updateReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+    private var updateReceiver: BroadcastReceiver = object: BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent) {
             if(intent.action != null && intent.action.equals("UPDATE_METER")) {
-                Log.d("METER_UPDATE", MeterUtil.speed.toString())
                 updateView()
+            }
+        }
+    }
+
+    private var btnListener = View.OnClickListener { view ->
+        when(view.id) {
+            R.id.btn_meter_premium_night -> {
+                if(MeterUtil.isPrmNight) {
+                    MeterUtil.isPrmNight = false
+                    btnPrmNight.text = resources.getString(R.string.btn_meter_premium_night_off)
+                } else {
+                    MeterUtil.isPrmNight = true
+                    btnPrmNight.text = resources.getString(R.string.btn_meter_premium_night_on)
+                }
+            }
+            R.id.btn_meter_premium_outcity -> {
+                if(MeterUtil.isPrmOutcity) {
+                    MeterUtil.isPrmOutcity = false
+                    btnPrmOutcity.text = resources.getString(R.string.btn_meter_premium_outcity_off)
+                } else {
+                    MeterUtil.isPrmOutcity = true
+                    btnPrmOutcity.text = resources.getString(R.string.btn_meter_premium_outcity_on)
+                }
+            }
+            R.id.btn_meter_start -> {
+                startService(Intent(this, MeterService::class.java))
+            }
+            R.id.btn_meter_stop -> {
+                MeterUtil.resetValues()
+                stopService(Intent(this, MeterService::class.java))
             }
         }
     }
@@ -52,6 +86,11 @@ class MeterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meter)
+
+        btnPrmNight = findViewById(R.id.btn_meter_premium_night)
+        btnPrmOutcity = findViewById(R.id.btn_meter_premium_outcity)
+        btnStart = findViewById(R.id.btn_meter_start)
+        btnStop = findViewById(R.id.btn_meter_stop)
 
         ivRunner = findViewById(R.id.iv_meter_runner)
         tvCost = findViewById(R.id.tv_meter_info_cost)
@@ -69,21 +108,27 @@ class MeterActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        registerReceiver(statusReceiver, IntentFilter("UPDATE_METER"))
-        registerReceiver(updateReceiver, IntentFilter("METER_STATUS"))
+        LocalBroadcastManager.getInstance(this).registerReceiver(statusReceiver, IntentFilter("METER_STATUS"))
+        LocalBroadcastManager.getInstance(this).registerReceiver(updateReceiver, IntentFilter("UPDATE_METER"))
+
         updateView()
     }
 
     override fun onPause() {
         super.onPause()
 
-        unregisterReceiver(statusReceiver)
-        unregisterReceiver(updateReceiver)
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(statusReceiver)
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(updateReceiver)
     }
 
     private fun initView() {
         MeterUtil.init(this)
         updateView()
+
+        btnPrmNight.setOnClickListener(btnListener)
+        btnPrmOutcity.setOnClickListener(btnListener)
+        btnStart.setOnClickListener(btnListener)
+        btnStop.setOnClickListener(btnListener)
     }
 
     private fun updateView() {

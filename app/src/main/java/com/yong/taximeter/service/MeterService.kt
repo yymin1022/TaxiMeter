@@ -16,6 +16,7 @@ import android.os.IBinder
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.yong.taximeter.R
 import com.yong.taximeter.activity.MeterActivity
 import com.yong.taximeter.util.MeterUtil
@@ -53,7 +54,7 @@ class MeterService: Service(), LocationListener {
         MeterUtil.increaseCost(curSpeed)
 
         val intent = Intent("UPDATE_METER")
-        sendBroadcast(intent)
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent)
     }
 
     private fun initNotification() {
