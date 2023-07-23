@@ -38,8 +38,8 @@ class MeterService: Service(), LocationListener {
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 0f, this)
 
-        initNotification()
         MeterUtil.init(this)
+        initNotification()
 
         return super.onStartCommand(intent, flags, startId)
     }
