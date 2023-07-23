@@ -46,6 +46,8 @@ object MeterUtil {
     var status = MeterStatus.NOT_DRIVING
     var theme = MeterTheme.THEME_HORSE
 
+    var isDriving = false
+
     var isPrmNight = false
     var isPrmOutcity = false
 
