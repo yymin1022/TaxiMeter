@@ -107,12 +107,7 @@ class MeterActivity : AppCompatActivity() {
         tvStatus = findViewById(R.id.tv_meter_info_status)
 
         if(!PermissionUtil.checkPermission(this)) {
-            val intent = Intent().apply {
-                action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-                addCategory(Intent.CATEGORY_DEFAULT)
-                data = Uri.parse("package:${packageName}")
-            }
-            startActivity(intent)
+            PermissionUtil.openAppInfo(this)
             finish()
         }
 
