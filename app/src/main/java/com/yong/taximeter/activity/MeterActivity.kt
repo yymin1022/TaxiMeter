@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatButton
@@ -22,7 +23,6 @@ import com.yong.taximeter.util.MeterTheme
 import com.yong.taximeter.util.MeterUtil
 import com.yong.taximeter.util.PermissionUtil
 import kotlin.math.roundToInt
-
 
 class MeterActivity : AppCompatActivity() {
     private lateinit var btnPrmNight: AppCompatButton
@@ -76,11 +76,17 @@ class MeterActivity : AppCompatActivity() {
                 }
             }
             R.id.btn_meter_start -> {
-                startService(Intent(this, MeterService::class.java))
+                if(!MeterUtil.isDriving) {
+                    MeterUtil.isDriving = true
+                    startService(Intent(this, MeterService::class.java))
+                }
             }
             R.id.btn_meter_stop -> {
-                stopService(Intent(this, MeterService::class.java))
-                updateView()
+                if(MeterUtil.isDriving) {
+                    MeterUtil.isDriving = false
+                    showFinishDialog()
+                    stopService(Intent(this, MeterService::class.java))
+                }
             }
         }
     }
@@ -126,6 +132,17 @@ class MeterActivity : AppCompatActivity() {
 
         LocalBroadcastManager.getInstance(this).unregisterReceiver(statusReceiver)
         LocalBroadcastManager.getInstance(this).unregisterReceiver(updateReceiver)
+    }
+
+    private fun showFinishDialog() {
+        val alertDialog = AlertDialog.Builder(this)
+        alertDialog.setTitle(getString(R.string.noti_alert_title))
+        alertDialog.setMessage(String.format(getString(R.string.noti_alert_message), MeterUtil.cost, MeterUtil.distance))
+        alertDialog.setPositiveButton(getString(R.string.noti_alert_close)) { dialog, _ ->
+            updateView()
+            dialog.dismiss()
+        }
+        alertDialog.show()
     }
 
     private fun initView() {
