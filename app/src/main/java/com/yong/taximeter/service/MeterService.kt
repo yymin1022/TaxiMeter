@@ -60,7 +60,7 @@ class MeterService: Service(), LocationListener {
 
     private fun initNotification() {
         val notiIntent = Intent(this, MeterActivity::class.java)
-        notiIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK and Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        notiIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK and Intent.FLAG_ACTIVITY_CLEAR_TASK
         val pendingIntent = PendingIntent.getActivity(this, 0, notiIntent, PendingIntent.FLAG_IMMUTABLE)
 
         createNotificationChannel()
