@@ -1,8 +1,13 @@
 package com.yong.taximeter.activity
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.drawable.AnimationDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -26,6 +31,24 @@ class MeterActivity : AppCompatActivity() {
     private lateinit var tvSpeed: TextView
     private lateinit var tvStatus: TextView
 
+    private var statusReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent) {
+            if(intent.action != null && intent.action.equals("METER_STATUS")) {
+                Log.d("METER_STATUS", MeterUtil.status.toString())
+                updateView()
+            }
+        }
+    }
+
+    private var updateReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent) {
+            if(intent.action != null && intent.action.equals("UPDATE_METER")) {
+                Log.d("METER_UPDATE", MeterUtil.speed.toString())
+                updateView()
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meter)
@@ -45,7 +68,17 @@ class MeterActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+
+        registerReceiver(statusReceiver, IntentFilter("UPDATE_METER"))
+        registerReceiver(updateReceiver, IntentFilter("METER_STATUS"))
         updateView()
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        unregisterReceiver(statusReceiver)
+        unregisterReceiver(updateReceiver)
     }
 
     private fun initView() {
