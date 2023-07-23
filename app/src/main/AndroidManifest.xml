@@ -25,8 +25,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".activity.MeterActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".service.MeterService"
             android:exported="false" />
     </application>
 
