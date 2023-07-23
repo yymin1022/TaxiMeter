@@ -8,7 +8,6 @@ import android.net.Uri
 import android.provider.Settings
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import com.google.firestore.v1.TargetOrBuilder
 import com.yong.taximeter.R
 
 object PermissionUtil {
