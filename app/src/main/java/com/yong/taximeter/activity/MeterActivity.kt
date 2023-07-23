@@ -6,9 +6,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.drawable.AnimationDrawable
 import android.graphics.drawable.Drawable
-import android.net.Uri
 import android.os.Bundle
-import android.provider.Settings
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
