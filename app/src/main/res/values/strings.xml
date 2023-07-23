@@ -24,6 +24,14 @@
     <string name="menu_main_home">Home</string>
     <string name="menu_main_setting">Setting</string>
 
+    <string name="noti_alert_close">Close</string>
+    <string name="noti_alert_message">Cost : %,d Won\nDriven Distance : %.1fkm</string>
+    <string name="noti_alert_title">Drive Finished</string>
+    <string name="noti_channel_description">Notification when Meter Service is Running</string>
+    <string name="noti_channel_id">DEFAULT_NOTI</string>
+    <string name="noti_channel_title">Running Notification</string>
+    <string name="noti_toast_no_permission">Location Permission is not Granted. Please Grant for Meter.</string>
+
     <string name="pref_category_dev_info">Developer Info</string>
     <string name="pref_category_meter">Meter Setup</string>
     <string name="pref_category_meter_info">Meter Info</string>
@@ -40,11 +48,15 @@
     <string name="tv_home_title_meter">Meter</string>
     <string name="tv_home_title_taxi">Taxi</string>
     <string name="tv_meter_info_cost">%,d Won</string>
-    <string name="tv_meter_info_cost_type">Cost Type\n%s</string>
-    <string name="tv_meter_info_distance">Drove Distance\n%dkm</string>
+    <string name="tv_meter_info_cost_type_base">Cost Type\nBase Cost</string>
+    <string name="tv_meter_info_cost_type_distance">Cost Type\nPer Distance</string>
+    <string name="tv_meter_info_cost_type_time">Cost Type\nPer Time</string>
+    <string name="tv_meter_info_distance">Drove Distance\n%.1fkm</string>
     <string name="tv_meter_info_premium_night">Night Premium Enabled</string>
     <string name="tv_meter_info_premium_outcity">Outcity Premium Enabled</string>
-    <string name="tv_meter_info_number">%d</string>
+    <string name="tv_meter_info_counter">%d</string>
     <string name="tv_meter_info_speed">Current Speed\n%dkm/h</string>
-    <string name="tv_meter_info_status">Status\n%s</string>
+    <string name="tv_meter_info_status_driving">Status\nDriving</string>
+    <string name="tv_meter_info_status_not_driving">Status\nNot Driving</string>
+    <string name="tv_meter_info_status_gps_unstable">Status\nGPS is Unstable</string>
 </resources>

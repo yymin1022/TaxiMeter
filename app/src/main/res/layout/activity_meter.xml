@@ -16,7 +16,6 @@
         android:text="@string/tv_meter_info_premium_outcity"
         android:textColor="@color/meterTextColorWhite"
         android:textSize="20sp"
-        android:visibility="gone"
         android:id="@+id/tv_meter_premium_outcity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +28,6 @@
         android:text="@string/tv_meter_info_premium_night"
         android:textColor="@color/meterTextColorWhite"
         android:textSize="20sp"
-        android:visibility="visible"
         android:id="@+id/tv_meter_premium_night"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_meter_premium_outcity" />
@@ -66,11 +64,11 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="35dp"
-        android:text="@string/tv_meter_info_number"
+        android:text="@string/tv_meter_info_counter"
         android:textAlignment="textEnd"
         android:textColor="@color/meterBlue"
         android:textSize="30sp"
-        android:id="@+id/tv_meter_info_number"
+        android:id="@+id/tv_meter_info_counter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_meter_info_cost"/>
 
@@ -78,7 +76,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="@string/tv_meter_info_cost_type"
+        android:text="@string/tv_meter_info_cost_type_base"
         android:textAlignment="viewEnd"
         android:textColor="@color/meterTextColorGray"
         android:textSize="20sp"
@@ -92,7 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="@string/tv_meter_info_status"
+        android:text="@string/tv_meter_info_status_not_driving"
         android:textAlignment="viewStart"
         android:textColor="@color/meterTextColorGray"
         android:textSize="20sp"
