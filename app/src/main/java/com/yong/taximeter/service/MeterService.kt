@@ -13,13 +13,13 @@ import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Build
 import android.os.IBinder
-import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import com.yong.taximeter.R
 import com.yong.taximeter.activity.MeterActivity
 import com.yong.taximeter.util.MeterUtil
+import kotlin.math.roundToInt
 
 class MeterService: Service(), LocationListener {
     private lateinit var locationManager: LocationManager
@@ -49,7 +49,7 @@ class MeterService: Service(), LocationListener {
     }
 
     override fun onLocationChanged(location: Location) {
-        val curSpeed = location.speed.toInt()
+        val curSpeed = location.speed.roundToInt()
         MeterUtil.increaseCost(curSpeed)
 
         val intent = Intent("UPDATE_METER")
