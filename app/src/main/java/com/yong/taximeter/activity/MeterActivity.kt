@@ -77,8 +77,8 @@ class MeterActivity : AppCompatActivity() {
                 startService(Intent(this, MeterService::class.java))
             }
             R.id.btn_meter_stop -> {
-                MeterUtil.resetValues()
                 stopService(Intent(this, MeterService::class.java))
+                updateView()
             }
         }
     }
@@ -122,7 +122,6 @@ class MeterActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        MeterUtil.init(this)
         updateView()
 
         btnPrmNight.setOnClickListener(btnListener)

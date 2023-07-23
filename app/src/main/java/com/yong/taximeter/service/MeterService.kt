@@ -39,12 +39,14 @@ class MeterService: Service(), LocationListener {
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 0f, this)
 
         initNotification()
+        MeterUtil.init(this)
 
         return super.onStartCommand(intent, flags, startId)
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        MeterUtil.resetValues()
         locationManager.removeUpdates(this)
         stopForeground(STOP_FOREGROUND_REMOVE)
     }
@@ -53,8 +55,7 @@ class MeterService: Service(), LocationListener {
         val curSpeed = location.speed.roundToInt()
         MeterUtil.increaseCost(curSpeed)
 
-        val intent = Intent("UPDATE_METER")
-        LocalBroadcastManager.getInstance(this).sendBroadcast(intent)
+        LocalBroadcastManager.getInstance(this).sendBroadcast(Intent("UPDATE_METER"))
     }
 
     private fun initNotification() {
