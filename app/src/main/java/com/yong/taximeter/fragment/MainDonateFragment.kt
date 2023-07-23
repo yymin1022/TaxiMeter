@@ -108,10 +108,20 @@ class MainDonateFragment : Fragment() {
     private val purchaseUpdateListener = PurchasesUpdatedListener { billingResult, purchases ->
         if(billingResult.responseCode == BillingResponseCode.OK && purchases != null) {
             Toast.makeText(requireContext(), "Purchased", Toast.LENGTH_SHORT).show()
+
+            if(purchases[0].products[0].equals("ad_remove")) {
+                // TODO : Remove AD
+                Toast.makeText(requireContext(), "Removed AD", Toast.LENGTH_SHORT).show()
+            }
+        } else if(billingResult.responseCode == BillingResponseCode.ITEM_ALREADY_OWNED) {
+            if(purchases != null && purchases[0].products[0].equals("ad_remove")) {
+                // TODO : Remove AD
+                Toast.makeText(requireContext(), "Removed AD", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Already Owned", Toast.LENGTH_SHORT).show()
+            }
         } else if(billingResult.responseCode == BillingResponseCode.USER_CANCELED) {
             Toast.makeText(requireContext(), "Cancelled", Toast.LENGTH_SHORT).show()
-        } else if(billingResult.responseCode == BillingResponseCode.ITEM_ALREADY_OWNED) {
-            Toast.makeText(requireContext(), "Already Owned", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(requireContext(), "Error : ${billingResult.debugMessage}", Toast.LENGTH_SHORT).show()
         }
