@@ -24,6 +24,8 @@
     <string name="menu_main_home">Home</string>
     <string name="menu_main_setting">Setting</string>
 
+    <string name="noti_alert_message">Cost : %,d Won\nDriven Distance : %.1fkm</string>
+    <string name="noti_alert_title">Drive Finished</string>
     <string name="noti_channel_description">Notification when Meter Service is Running</string>
     <string name="noti_channel_id">DEFAULT_NOTI</string>
     <string name="noti_channel_title">Running Notification</string>
