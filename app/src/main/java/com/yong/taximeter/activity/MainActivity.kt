@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val mainBottomNavigationView = findViewById<BottomNavigationView>(R.id.menu_main_bottom)
-        mainBottomNavigationView.setOnItemSelectedListener(NavListner())
+        mainBottomNavigationView.setOnItemSelectedListener(NavListener())
         mainBottomNavigationView.selectedItemId = R.id.menu_main_home
 
         val mainFragmentTransaction = mainFragmentManager.beginTransaction()
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    inner class NavListner : OnItemSelectedListener, NavigationBarView.OnItemSelectedListener {
+    inner class NavListener : OnItemSelectedListener, NavigationBarView.OnItemSelectedListener {
         override fun onNavigationItemSelected(item: MenuItem): Boolean {
             val mainFragmentTransaction = mainFragmentManager.beginTransaction()
 
