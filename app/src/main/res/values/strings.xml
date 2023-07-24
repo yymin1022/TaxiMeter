@@ -67,5 +67,5 @@
     <string name="tv_meter_info_status_gps_unstable">Status\nGPS is Unstable</string>
     <string name="tv_welcome_permission_grant_location">Grant Location Permission</string>
     <string name="tv_welcome_permission_grant_notification">Grant Notification Permission</string>
-    <string name="tv_welcome_permission_info">You need to grant Location and Notification Permission for Meter Feature. Without it, GPS will not work or Background Service will be unstable.</string>
+    <string name="tv_welcome_permission_info">You need to grant Location and Notification Permission for Meter Feature.\nWithout it, GPS will not work or Background Service will be unstable.</string>
 </resources>
