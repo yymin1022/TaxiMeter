@@ -15,6 +15,7 @@ import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.yong.taximeter.R
 import com.yong.taximeter.activity.MeterActivity
+import com.yong.taximeter.util.MeterStatus
 import com.yong.taximeter.util.MeterUtil
 import com.yong.taximeter.util.PermissionUtil
 import kotlin.math.roundToInt
@@ -31,8 +32,10 @@ class MeterService: Service(), LocationListener {
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 0f, this)
+        MeterUtil.status = MeterStatus.GPS_UNSTABLE
 
         initNotification()
+        LocalBroadcastManager.getInstance(this).sendBroadcast(Intent("UPDATE_METER"))
 
         return super.onStartCommand(intent, flags, startId)
     }
