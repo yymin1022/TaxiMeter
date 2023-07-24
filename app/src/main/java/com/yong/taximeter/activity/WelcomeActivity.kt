@@ -8,7 +8,6 @@ import com.yong.taximeter.fragment.WelcomePermissonFragment
 
 class WelcomeActivity : AppCompatActivity() {
     private var welcomeFragmentManager = supportFragmentManager
-    private var welcomeLocationFragment = WelcomeLocationFragment()
     private var welcomePermissonFragment = WelcomePermissonFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
