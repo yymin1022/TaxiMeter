@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val mainBottomNavigationView = findViewById<BottomNavigationView>(R.id.menu_main_bottom)
+        mainBottomNavigationView.setOnApplyWindowInsetsListener(null)
         mainBottomNavigationView.setOnItemSelectedListener(NavListener())
         mainBottomNavigationView.selectedItemId = R.id.menu_main_home
 
