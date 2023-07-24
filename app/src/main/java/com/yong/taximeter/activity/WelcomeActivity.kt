@@ -3,7 +3,6 @@ package com.yong.taximeter.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.yong.taximeter.R
-import com.yong.taximeter.fragment.WelcomeLocationFragment
 import com.yong.taximeter.fragment.WelcomePermissonFragment
 
 class WelcomeActivity : AppCompatActivity() {
