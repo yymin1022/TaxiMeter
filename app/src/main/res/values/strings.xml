@@ -46,6 +46,23 @@
     <string name="pref_title_theme">Meter Theme</string>
     <string name="pref_title_version">Cost DB Version</string>
 
+    <string name="location_busan">Busan</string>
+    <string name="location_chungbuk">Chungbuk</string>
+    <string name="location_chungnam">Chungnam</string>
+    <string name="location_daegu">Daegu</string>
+    <string name="location_daejeon">Daejeon</string>
+    <string name="location_gangwon">Gangwon</string>
+    <string name="location_gwangju">Gwangju</string>
+    <string name="location_gyeongbuk">Gyeongbuk</string>
+    <string name="location_gyeonggi">Gyeonggi</string>
+    <string name="location_gyeongnam">Gyeongnam</string>
+    <string name="location_incheon">Incheon</string>
+    <string name="location_jeju">Jeju</string>
+    <string name="location_jeonbuk">Jeonbuk</string>
+    <string name="location_jeonnam">Jeonnam</string>
+    <string name="location_ulsan">Ulsan</string>
+    <string name="location_seoul">Seoul</string>
+
     <string name="tv_donate_adremove">AD Remove</string>
     <string name="tv_donate_bigmac">$10 BigMac</string>
     <string name="tv_donate_coffee">$5 Starbucks</string>
