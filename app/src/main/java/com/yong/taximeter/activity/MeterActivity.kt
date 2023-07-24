@@ -110,7 +110,7 @@ class MeterActivity : AppCompatActivity() {
         tvSpeed = findViewById(R.id.tv_meter_info_speed)
         tvStatus = findViewById(R.id.tv_meter_info_status)
 
-        if(!PermissionUtil.checkPermission(this)) {
+        if(!PermissionUtil.checkLocationPermission(this)) {
             PermissionUtil.openAppInfo(this)
             finish()
         }
