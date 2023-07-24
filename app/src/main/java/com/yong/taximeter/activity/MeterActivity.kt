@@ -171,6 +171,7 @@ class MeterActivity : AppCompatActivity() {
                 .bannerHeight(CaulyAdInfoBuilder.FIXED)
                 .effect("Circle")
                 .enableDefaultBannerAd(true)
+                .reloadInterval(20)
                 .setBannerSize(320, 50)
                 .build()
 
