@@ -1,5 +1,6 @@
 package com.yong.taximeter.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -7,6 +8,7 @@ import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
+import androidx.preference.PreferenceManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 import com.yong.taximeter.fragment.MainDonateFragment
@@ -36,9 +38,15 @@ class MainActivity : AppCompatActivity() {
         mainBottomNavigationView.selectedItemId = R.id.menu_main_home
 
         val mainFragmentTransaction = mainFragmentManager.beginTransaction()
-        mainFragmentTransaction.replace(R.id.layout_main_fragment, mainHomeFragment).commitAllowingStateLoss()
+        mainFragmentTransaction.replace(R.id.layout_main_fragment, mainHomeFragment)
+            .commitAllowingStateLoss()
 
         FirebaseUtil.getLatestVersion(this)
+
+        val pref = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        if (!pref.getBoolean("welcome", false)) {
+            startActivity(Intent(applicationContext, WelcomeActivity::class.java))
+        }
     }
 
     inner class NavListner : OnItemSelectedListener, NavigationBarView.OnItemSelectedListener {
