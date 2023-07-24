@@ -67,6 +67,10 @@
     <string name="tv_meter_info_status_driving">Status\nDriving</string>
     <string name="tv_meter_info_status_not_driving">Status\nNot Driving</string>
     <string name="tv_meter_info_status_gps_unstable">Status\nGPS is Unstable</string>
+    <string name="tv_welcome_location_info">You can change it later from App Setting</string>
+    <string name="tv_welcome_location_next">Next</string>
+    <string name="tv_welcome_location_title">Select Location for Meter Cost</string>
+    <string name="tv_welcome_location_warning">Warning</string>
     <string name="tv_welcome_permission_grant_location">Grant Location Permission</string>
     <string name="tv_welcome_permission_grant_notification">Grant Notification Permission</string>
     <string name="tv_welcome_permission_info">You need to grant Location and Notification Permission for Meter Feature.\nWithout it, GPS will not work or Background Service will be unstable.</string>
