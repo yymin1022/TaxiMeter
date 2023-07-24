@@ -19,6 +19,8 @@
     <string name="fragment_label_setting">Setting Fragment</string>
 
     <string name="iv_desc_meter_runner">Meter Runner</string>
+    <string name="iv_desc_welcome_permission_location">Location Icon</string>
+    <string name="iv_desc_welcome_permission_notification">Notification Icon</string>
 
     <string name="menu_main_donate">Donate</string>
     <string name="menu_main_home">Home</string>
