@@ -7,14 +7,20 @@ import android.content.IntentFilter
 import android.graphics.drawable.AnimationDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatButton
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import androidx.preference.PreferenceManager
+import com.fsn.cauly.CaulyAdInfoBuilder
+import com.fsn.cauly.CaulyAdView
+import com.fsn.cauly.CaulyAdViewListener
 import com.yong.taximeter.R
 import com.yong.taximeter.service.MeterService
 import com.yong.taximeter.util.CostType
@@ -24,7 +30,7 @@ import com.yong.taximeter.util.MeterUtil
 import com.yong.taximeter.util.PermissionUtil
 import kotlin.math.roundToInt
 
-class MeterActivity : AppCompatActivity() {
+class MeterActivity : AppCompatActivity(), CaulyAdViewListener {
     private lateinit var btnPrmNight: AppCompatButton
     private lateinit var btnPrmOutcity: AppCompatButton
     private lateinit var btnStart: AppCompatButton
@@ -150,12 +156,31 @@ class MeterActivity : AppCompatActivity() {
             MeterUtil.init(this)
         }
 
+        initCauly()
         updateView()
 
         btnPrmNight.setOnClickListener(btnListener)
         btnPrmOutcity.setOnClickListener(btnListener)
         btnStart.setOnClickListener(btnListener)
         btnStop.setOnClickListener(btnListener)
+    }
+
+    private fun initCauly() {
+        val pref = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        if(!pref.getBoolean("ad_remove", false)) {
+            val caulyLayout = findViewById<LinearLayout>(R.id.layout_meter_cauly)
+            val caulyAdInfo = CaulyAdInfoBuilder("ymwH9YIJ")
+                .bannerHeight(CaulyAdInfoBuilder.FIXED)
+                .effect("Circle")
+                .enableDefaultBannerAd(true)
+                .setBannerSize(320, 50)
+                .build()
+
+            val caulyAdView = CaulyAdView(this)
+            caulyAdView.setAdInfo(caulyAdInfo)
+            caulyAdView.setAdViewListener(this)
+            caulyLayout.addView(caulyAdView)
+        }
     }
 
     private fun updateView() {
@@ -279,4 +304,14 @@ class MeterActivity : AppCompatActivity() {
         animDrawable.start()
         return animDrawable
     }
+
+    override fun onReceiveAd(p0: CaulyAdView?, p1: Boolean) {}
+
+    override fun onFailedToReceiveAd(p0: CaulyAdView?, p1: Int, p2: String?) {
+        Log.e("CAULY Error", p2!!)
+    }
+
+    override fun onShowLandingScreen(p0: CaulyAdView?) {}
+
+    override fun onCloseLandingScreen(p0: CaulyAdView?) {}
 }
