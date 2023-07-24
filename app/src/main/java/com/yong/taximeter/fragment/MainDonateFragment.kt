@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.preference.PreferenceManager
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClient.BillingResponseCode
 import com.android.billingclient.api.BillingClient.ProductType
@@ -110,11 +111,17 @@ class MainDonateFragment : Fragment() {
             Toast.makeText(requireContext(), getString(R.string.noti_toast_purchase_error), Toast.LENGTH_SHORT).show()
 
             if(purchases[0].products[0].equals("ad_remove")) {
-                // TODO : Remove AD
+                val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                val prefEd = pref.edit()
+                prefEd.putBoolean("ad_remove", true)
+                prefEd.apply()
             }
         } else if(billingResult.responseCode == BillingResponseCode.ITEM_ALREADY_OWNED) {
             if(purchases != null && purchases[0].products[0].equals("ad_remove")) {
-                // TODO : Remove AD
+                val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                val prefEd = pref.edit()
+                prefEd.putBoolean("ad_remove", true)
+                prefEd.apply()
             } else {
                 Toast.makeText(requireContext(), getString(R.string.noti_toast_purchase_already), Toast.LENGTH_SHORT).show()
             }
