@@ -201,11 +201,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_meter_premium_night" />
 
-    <LinearLayout
+
+    <com.fsn.cauly.CaulyAdView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:id="@+id/layout_meter_cauly"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:appcode="CAULY"
+        app:bannerHeight="Adaptive" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
