@@ -14,7 +14,6 @@
         android:text="@string/tv_welcome_location_title"
         android:textAlignment="center"
         android:textSize="20sp"
-        android:enabled="false"
         android:id="@+id/tv_welcome_location_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,27 +26,27 @@
         android:text="@string/tv_welcome_location_info"
         android:textAlignment="center"
         android:textSize="15sp"
-        android:enabled="false"
         android:id="@+id/tv_welcome_location_info"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_welcome_location_title"/>
 
-    <RadioGroup
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center"
-        android:id="@+id/radio_welcome_location"
+        android:id="@+id/layout_welcome_location"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_welcome_location_title"
         app:layout_constraintBottom_toTopOf="@id/tv_welcome_location_warning">
 
-        <LinearLayout
+        <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="start"
+            android:id="@+id/radio_welcome_location_1">
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -97,12 +96,14 @@
                 android:text="@string/location_daejeon"
                 android:id="@+id/radio_location_daejeon" />
 
-        </LinearLayout>
+        </RadioGroup>
 
-        <LinearLayout
+        <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="start"
+            android:id="@+id/radio_welcome_location_2">
 
             <RadioButton
                 android:layout_width="wrap_content"
@@ -151,10 +152,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/location_chungnam"
                 android:id="@+id/radio_location_chungnam" />
+        </RadioGroup>
 
-        </LinearLayout>
-
-    </RadioGroup>
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -163,11 +163,10 @@
         android:text="@string/tv_welcome_location_warning"
         android:textAlignment="center"
         android:textSize="20sp"
-        android:enabled="false"
         android:id="@+id/tv_welcome_location_warning"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radio_welcome_location"
+        app:layout_constraintTop_toBottomOf="@id/layout_welcome_location"
         app:layout_constraintBottom_toTopOf="@id/tv_welcome_location_next"/>
 
     <TextView
@@ -177,7 +176,6 @@
         android:text="@string/tv_welcome_location_next"
         android:textAlignment="center"
         android:textSize="20sp"
-        android:enabled="false"
         android:id="@+id/tv_welcome_location_next"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
