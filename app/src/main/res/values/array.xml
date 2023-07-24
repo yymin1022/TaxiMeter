@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="pref_location">
-        <item>Seoul</item>
-        <item>Gangwon</item>
-        <item>Gyeonggi</item>
-        <item>Gyeongbuk</item>
-        <item>Gyeongnam</item>
-        <item>Gwangju</item>
-        <item>Daegu</item>
-        <item>Daejeon</item>
-        <item>Busan</item>
-        <item>Ulsan</item>
-        <item>Incheon</item>
-        <item>Jeonbuk</item>
-        <item>Jeonnam</item>
-        <item>Jeju</item>
-        <item>Chungbuk</item>
-        <item>Chungnam</item>
+        <item>@string/location_seoul</item>
+        <item>@string/location_gangwon</item>
+        <item>@string/location_gyeonggi</item>
+        <item>@string/location_gyeongbuk</item>
+        <item>@string/location_gyeongnam</item>
+        <item>@string/location_gwangju</item>
+        <item>@string/location_daegu</item>
+        <item>@string/location_daejeon</item>
+        <item>@string/location_busan</item>
+        <item>@string/location_ulsan</item>
+        <item>@string/location_incheon</item>
+        <item>@string/location_jeonbuk</item>
+        <item>@string/location_jeonnam</item>
+        <item>@string/location_jeju</item>
+        <item>@string/location_chungbuk</item>
+        <item>@string/location_chungnam</item>
     </string-array>
 
     <string-array name="pref_location_value">
