@@ -17,7 +17,6 @@
         <item>Jeju</item>
         <item>Chungbuk</item>
         <item>Chungnam</item>
-        <item>ETC</item>
     </string-array>
 
     <string-array name="pref_location_value">
@@ -37,7 +36,6 @@
         <item>jeju</item>
         <item>chungbuk</item>
         <item>chungnam</item>
-        <item>etc</item>
     </string-array>
 
     <string-array name="pref_theme">
