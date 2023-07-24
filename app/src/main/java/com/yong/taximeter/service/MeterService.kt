@@ -24,7 +24,7 @@ class MeterService: Service(), LocationListener {
     private lateinit var notificationBuilder: NotificationCompat.Builder
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        if(!PermissionUtil.checkPermission(this)){
+        if(!PermissionUtil.checkLocationPermission(this)){
             PermissionUtil.openAppInfo(this)
             stopSelf()
         }

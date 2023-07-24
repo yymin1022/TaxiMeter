@@ -34,10 +34,14 @@
             android:name=".activity.MeterActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".activity.WelcomeActivity"
+            android:exported="false" />
+
         <service
             android:name=".service.MeterService"
-            android:foregroundServiceType="location"
-            android:exported="false" />
+            android:exported="false"
+            android:foregroundServiceType="location" />
     </application>
 
 </manifest>
