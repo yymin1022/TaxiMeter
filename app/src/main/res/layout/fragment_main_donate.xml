@@ -1,86 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_donate_coke"
-        android:textAlignment="center"
-        android:id="@+id/tv_donate_coke"
-        android:drawablePadding="15dp"
-        app:drawableTopCompat="@drawable/ic_donate_coke"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_donate_coffee"
-        app:layout_constraintBottom_toTopOf="@id/tv_donate_dinner" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_donate_coffee"
-        android:textAlignment="center"
-        android:id="@+id/tv_donate_coffee"
-        android:drawablePadding="15dp"
-        app:drawableTopCompat="@drawable/ic_donate_coffee"
-        app:layout_constraintStart_toEndOf="@id/tv_donate_coke"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_donate_bigmac"
-        app:layout_constraintBottom_toTopOf="@id/tv_donate_adremove" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_donate_coke"
+            android:textAlignment="center"
+            android:id="@+id/tv_donate_coke"
+            android:drawablePadding="15dp"
+            app:drawableTopCompat="@drawable/ic_donate_coke_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_donate_coffee"
+            app:layout_constraintBottom_toTopOf="@id/tv_donate_dinner" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_donate_bigmac"
-        android:textAlignment="center"
-        android:id="@+id/tv_donate_bigmac"
-        android:drawablePadding="15dp"
-        app:drawableTopCompat="@drawable/ic_donate_bigmac"
-        app:layout_constraintStart_toEndOf="@id/tv_donate_coffee"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tv_donate_money" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_donate_coffee"
+            android:textAlignment="center"
+            android:id="@+id/tv_donate_coffee"
+            android:drawablePadding="15dp"
+            app:drawableTopCompat="@drawable/ic_donate_coffee_light"
+            app:layout_constraintStart_toEndOf="@id/tv_donate_coke"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_donate_bigmac"
+            app:layout_constraintBottom_toTopOf="@id/tv_donate_adremove" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_donate_dinner"
-        android:textAlignment="center"
-        android:id="@+id/tv_donate_dinner"
-        android:drawablePadding="15dp"
-        app:drawableTopCompat="@drawable/ic_donate_dinner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_donate_coke"
-        app:layout_constraintEnd_toStartOf="@id/tv_donate_coffee"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_donate_bigmac"
+            android:textAlignment="center"
+            android:id="@+id/tv_donate_bigmac"
+            android:drawablePadding="15dp"
+            app:drawableTopCompat="@drawable/ic_donate_bigmac_light"
+            app:layout_constraintStart_toEndOf="@id/tv_donate_coffee"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_donate_money" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_donate_adremove"
-        android:textAlignment="center"
-        android:id="@+id/tv_donate_adremove"
-        android:drawablePadding="15dp"
-        app:drawableTopCompat="@drawable/ic_donate_adremove"
-        app:layout_constraintStart_toEndOf="@id/tv_donate_dinner"
-        app:layout_constraintTop_toBottomOf="@id/tv_donate_coffee"
-        app:layout_constraintEnd_toStartOf="@id/tv_donate_bigmac"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_donate_dinner"
+            android:textAlignment="center"
+            android:id="@+id/tv_donate_dinner"
+            android:drawablePadding="15dp"
+            app:drawableTopCompat="@drawable/ic_donate_dinner_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_donate_coke"
+            app:layout_constraintEnd_toStartOf="@id/tv_donate_coffee"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_donate_money"
-        android:textAlignment="center"
-        android:id="@+id/tv_donate_money"
-        android:drawablePadding="15dp"
-        app:drawableTopCompat="@drawable/ic_donate_money"
-        app:layout_constraintStart_toEndOf="@id/tv_donate_adremove"
-        app:layout_constraintTop_toBottomOf="@id/tv_donate_bigmac"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_donate_adremove"
+            android:textAlignment="center"
+            android:id="@+id/tv_donate_adremove"
+            android:drawablePadding="15dp"
+            app:drawableTopCompat="@drawable/ic_donate_adremove_light"
+            app:layout_constraintStart_toEndOf="@id/tv_donate_dinner"
+            app:layout_constraintTop_toBottomOf="@id/tv_donate_coffee"
+            app:layout_constraintEnd_toStartOf="@id/tv_donate_bigmac"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_donate_money"
+            android:textAlignment="center"
+            android:id="@+id/tv_donate_money"
+            android:drawablePadding="15dp"
+            app:drawableTopCompat="@drawable/ic_donate_money_light"
+            app:layout_constraintStart_toEndOf="@id/tv_donate_adremove"
+            app:layout_constraintTop_toBottomOf="@id/tv_donate_bigmac"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

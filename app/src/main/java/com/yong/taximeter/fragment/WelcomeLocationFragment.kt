@@ -1,7 +1,6 @@
 package com.yong.taximeter.fragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -91,6 +90,7 @@ class WelcomeLocationFragment : Fragment() {
         }
 
         prefEditor.putString("pref_location", selectedLocation)
+        prefEditor.putString("pref_theme", "horse")
         prefEditor.apply()
     }
 }

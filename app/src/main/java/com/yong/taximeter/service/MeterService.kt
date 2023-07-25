@@ -15,6 +15,7 @@ import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.yong.taximeter.R
 import com.yong.taximeter.activity.MeterActivity
+import com.yong.taximeter.util.MeterStatus
 import com.yong.taximeter.util.MeterUtil
 import com.yong.taximeter.util.PermissionUtil
 import kotlin.math.roundToInt
@@ -30,9 +31,11 @@ class MeterService: Service(), LocationListener {
         }
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 0f, this)
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 300, 0f, this)
+        MeterUtil.status = MeterStatus.GPS_UNSTABLE
 
         initNotification()
+        LocalBroadcastManager.getInstance(this).sendBroadcast(Intent("UPDATE_METER"))
 
         return super.onStartCommand(intent, flags, startId)
     }
@@ -49,6 +52,7 @@ class MeterService: Service(), LocationListener {
         MeterUtil.increaseCost(curSpeed)
 
         LocalBroadcastManager.getInstance(this).sendBroadcast(Intent("UPDATE_METER"))
+        initNotification()
     }
 
     private fun initNotification() {
@@ -58,9 +62,9 @@ class MeterService: Service(), LocationListener {
 
         createNotificationChannel()
         notificationBuilder = NotificationCompat.Builder(this, getString(R.string.noti_channel_id))
-            .setSmallIcon(R.drawable.ic_horse_1)
-            .setContentTitle(getString(R.string.app_name))
-            .setContentText(getString(R.string.noti_channel_description))
+            .setSmallIcon(R.drawable.ic_noti_taxi)
+            .setContentTitle(getString(R.string.noti_service_title))
+            .setContentText(String.format(getString(R.string.noti_service_content), MeterUtil.cost, MeterUtil.speed * 3.6, MeterUtil.distance / 1000))
             .setPriority(NotificationCompat.PRIORITY_MIN)
             .setContentIntent(pendingIntent)
             .setAutoCancel(false)

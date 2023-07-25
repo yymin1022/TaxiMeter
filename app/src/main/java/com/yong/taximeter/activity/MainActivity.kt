@@ -3,9 +3,6 @@ package com.yong.taximeter.activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
-import android.widget.AdapterView
-import android.widget.AdapterView.OnItemSelectedListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.preference.PreferenceManager
@@ -34,7 +31,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val mainBottomNavigationView = findViewById<BottomNavigationView>(R.id.menu_main_bottom)
-        mainBottomNavigationView.setOnItemSelectedListener(NavListner())
+        mainBottomNavigationView.setOnApplyWindowInsetsListener(null)
+        mainBottomNavigationView.setOnItemSelectedListener(NavListener())
         mainBottomNavigationView.selectedItemId = R.id.menu_main_home
 
         val mainFragmentTransaction = mainFragmentManager.beginTransaction()
@@ -49,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    inner class NavListner : OnItemSelectedListener, NavigationBarView.OnItemSelectedListener {
+    inner class NavListener : NavigationBarView.OnItemSelectedListener {
         override fun onNavigationItemSelected(item: MenuItem): Boolean {
             val mainFragmentTransaction = mainFragmentManager.beginTransaction()
 
@@ -61,9 +59,5 @@ class MainActivity : AppCompatActivity() {
 
             return true
         }
-
-        override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {}
-
-        override fun onNothingSelected(p0: AdapterView<*>?) {}
     }
 }

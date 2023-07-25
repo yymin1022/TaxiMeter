@@ -39,8 +39,8 @@
     </string-array>
 
     <string-array name="pref_theme">
-        <item>Horse Type</item>
-        <item>Circle Type</item>
+        <item>@string/theme_horse</item>
+        <item>@string/theme_circle</item>
     </string-array>
 
     <string-array name="pref_theme_value">

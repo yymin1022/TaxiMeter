@@ -31,8 +31,14 @@
     <string name="noti_channel_description">Notification when Meter Service is Running</string>
     <string name="noti_channel_id">DEFAULT_NOTI</string>
     <string name="noti_channel_title">Running Notification</string>
+    <string name="noti_service_content">Cost : %,d Won / Current Speed : %.1fkm/h / Driven Distance : %.1fkm</string>
+    <string name="noti_service_title">Taxi Meter is Running</string>
     <string name="noti_toast_no_permission">Location Permission is not Granted. Please Grant for Meter.</string>
-    <string name="noti_toast_no_notification">Without Notification, Backgrounf Work might be unstable.</string>
+    <string name="noti_toast_no_notification">Without Notification, Background Runtime might be unstable.</string>
+    <string name="noti_toast_purchase_already">Already Owned Item!</string>
+    <string name="noti_toast_purchase_canceled">Canceled Purchase</string>
+    <string name="noti_toast_purchase_error">Error %d : %s</string>
+    <string name="noti_toast_purchase_success">Successfully Purchased. Thanks!</string>
 
     <string name="pref_category_dev_info">Developer Info</string>
     <string name="pref_category_meter">Meter Setup</string>
@@ -40,9 +46,15 @@
     <string name="pref_summary_cost_1">Base Cost : %,d Won (First %.1fkm)\n100 Won per %dm\n100 Won per %dsecs\nOuter City Premium %d%%\nNight Premium\n - %d%% when %d:00 ~ %d:00\n - %d%% when %d:00 ~ %d:00</string>
     <string name="pref_summary_cost_2">Base Cost : %,d Won (First %.1fkm)\n100 Won per %dm\n100 Won per %dsecs\nOuter City Premium %d%%\nNight Premium %d%% when %d:00 ~ %d:00</string>
     <string name="pref_summary_developer">CAU CSE 2019</string>
+    <string name="pref_summary_developer_blog">https://dev-lr.com</string>
+    <string name="pref_summary_developer_github">https://github.com/yymin1022</string>
+    <string name="pref_summary_privacy_policy">https://defcon.or.kr/privacy</string>
     <string name="pref_title_developer">Dev. LR</string>
+    <string name="pref_title_developer_blog">Developer Blog</string>
+    <string name="pref_title_developer_github">Developer GitHub</string>
     <string name="pref_title_cost">Cost Info</string>
     <string name="pref_title_location">Location</string>
+    <string name="pref_title_privacy_policy">Privacy Policy</string>
     <string name="pref_title_theme">Meter Theme</string>
     <string name="pref_title_version">Cost DB Version</string>
 
@@ -63,6 +75,9 @@
     <string name="location_ulsan">Ulsan</string>
     <string name="location_seoul">Seoul</string>
 
+    <string name="theme_circle">Circle Type</string>
+    <string name="theme_horse">Horse Type</string>
+
     <string name="tv_donate_adremove">AD Remove</string>
     <string name="tv_donate_bigmac">$10 BigMac</string>
     <string name="tv_donate_coffee">$5 Starbucks</string>
@@ -80,7 +95,7 @@
     <string name="tv_meter_info_premium_night">Night Premium Enabled</string>
     <string name="tv_meter_info_premium_outcity">Outcity Premium Enabled</string>
     <string name="tv_meter_info_counter">%d</string>
-    <string name="tv_meter_info_speed">Current Speed\n%dkm/h</string>
+    <string name="tv_meter_info_speed">Current Speed\n%.1fkm/h</string>
     <string name="tv_meter_info_status_driving">Status\nDriving</string>
     <string name="tv_meter_info_status_not_driving">Status\nNot Driving</string>
     <string name="tv_meter_info_status_gps_unstable">Status\nGPS is Unstable</string>

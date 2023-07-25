@@ -13,6 +13,7 @@ import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources
 import com.yong.taximeter.R
 import com.yong.taximeter.activity.MeterActivity
+import com.yong.taximeter.util.Util
 
 class MainHomeFragment : Fragment() {
     override fun onCreateView(
@@ -27,21 +28,12 @@ class MainHomeFragment : Fragment() {
         imageTaxi.setImageDrawable(AppCompatResources.getDrawable(requireContext(),
             R.drawable.ic_main_taxi_light
         ))
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && isUsingNightModeResources()) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && Util.isUsingNightModeResources(requireContext())) {
             imageTaxi.setImageDrawable(AppCompatResources.getDrawable(requireContext(),
                 R.drawable.ic_main_taxi_dark
             ))
         }
 
         return baseView
-    }
-
-    private fun isUsingNightModeResources(): Boolean {
-        return when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-            Configuration.UI_MODE_NIGHT_YES -> true
-            Configuration.UI_MODE_NIGHT_NO -> false
-            Configuration.UI_MODE_NIGHT_UNDEFINED -> false
-            else -> false
-        }
     }
 }

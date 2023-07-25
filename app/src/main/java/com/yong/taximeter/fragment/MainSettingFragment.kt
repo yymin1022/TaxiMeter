@@ -1,8 +1,10 @@
 package com.yong.taximeter.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener
+import android.net.Uri
 import android.os.Bundle
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -28,6 +30,10 @@ class MainSettingFragment : PreferenceFragmentCompat() {
         arrThemeKey = resources.getStringArray(R.array.pref_theme)
         arrThemeValue = resources.getStringArray(R.array.pref_theme_value)
 
+        findPreference<Preference>("pref_info_developer_blog")!!.setOnPreferenceClickListener(prefClickListener)
+        findPreference<Preference>("pref_info_developer_github")!!.setOnPreferenceClickListener(prefClickListener)
+        findPreference<Preference>("pref_info_privacy_policy")!!.setOnPreferenceClickListener(prefClickListener)
+
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         pref.registerOnSharedPreferenceChangeListener(prefListener)
 
@@ -49,6 +55,24 @@ class MainSettingFragment : PreferenceFragmentCompat() {
                 }
             }
         }
+
+    private val prefClickListener = Preference.OnPreferenceClickListener { preference ->
+        when(preference.key) {
+            "pref_info_developer_blog" -> {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://dev-lr.com")))
+            }
+
+            "pref_info_developer_github" -> {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/yymin1022")))
+            }
+
+            "pref_info_privacy_policy" -> {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://defcon.or.kr/privacy")))
+            }
+        }
+
+        return@OnPreferenceClickListener false
+    }
 
     private fun initSummary() {
         val locationValue = pref.getString(PREF_KEY_LOCATION, "seoul")!!

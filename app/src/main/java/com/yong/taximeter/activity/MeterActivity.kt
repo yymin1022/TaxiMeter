@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatButton
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import androidx.preference.PreferenceManager
+import com.fsn.cauly.CaulyAdView
 import com.yong.taximeter.R
 import com.yong.taximeter.service.MeterService
 import com.yong.taximeter.util.CostType
@@ -59,12 +61,15 @@ class MeterActivity : AppCompatActivity() {
         when(view.id) {
             R.id.btn_meter_premium_night -> {
                 if(MeterUtil.isPrmNight) {
+                    MeterUtil.applyBaseCostNightPremium(false)
                     MeterUtil.isPrmNight = false
                     btnPrmNight.text = resources.getString(R.string.btn_meter_premium_night_off)
                 } else {
+                    MeterUtil.applyBaseCostNightPremium(true)
                     MeterUtil.isPrmNight = true
                     btnPrmNight.text = resources.getString(R.string.btn_meter_premium_night_on)
                 }
+                updateView()
             }
             R.id.btn_meter_premium_outcity -> {
                 if(MeterUtil.isPrmOutcity) {
@@ -124,6 +129,7 @@ class MeterActivity : AppCompatActivity() {
         LocalBroadcastManager.getInstance(this).registerReceiver(statusReceiver, IntentFilter("METER_STATUS"))
         LocalBroadcastManager.getInstance(this).registerReceiver(updateReceiver, IntentFilter("UPDATE_METER"))
 
+        initCauly()
         updateView()
     }
 
@@ -137,7 +143,7 @@ class MeterActivity : AppCompatActivity() {
     private fun showFinishDialog() {
         val alertDialog = AlertDialog.Builder(this)
         alertDialog.setTitle(getString(R.string.noti_alert_title))
-        alertDialog.setMessage(String.format(getString(R.string.noti_alert_message), MeterUtil.cost, MeterUtil.distance))
+        alertDialog.setMessage(String.format(getString(R.string.noti_alert_message), MeterUtil.cost, MeterUtil.distance / 1000))
         alertDialog.setPositiveButton(getString(R.string.noti_alert_close)) { dialog, _ ->
             updateView()
             dialog.dismiss()
@@ -149,7 +155,6 @@ class MeterActivity : AppCompatActivity() {
         if(!MeterUtil.isDriving) {
             MeterUtil.init(this)
         }
-
         updateView()
 
         btnPrmNight.setOnClickListener(btnListener)
@@ -158,13 +163,21 @@ class MeterActivity : AppCompatActivity() {
         btnStop.setOnClickListener(btnListener)
     }
 
+    private fun initCauly() {
+        val pref = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        if(pref.getBoolean("ad_remove", false)) {
+            val caulyLayout = findViewById<CaulyAdView>(R.id.layout_meter_cauly)
+            caulyLayout.visibility = View.GONE
+        }
+    }
+
     private fun updateView() {
-        ivRunner.setImageDrawable(updateRunner(MeterUtil.speed, MeterUtil.theme))
+        ivRunner.setImageDrawable(updateRunner(MeterUtil.speed.roundToInt(), MeterUtil.theme))
 
         tvCost.text = String.format(resources.getString(R.string.tv_meter_info_cost), MeterUtil.cost)
         tvCounter.text = String.format(resources.getString(R.string.tv_meter_info_counter), MeterUtil.counter)
         tvDistance.text = String.format(resources.getString(R.string.tv_meter_info_distance), MeterUtil.distance / 1000)
-        tvSpeed.text = String.format(resources.getString(R.string.tv_meter_info_speed), (MeterUtil.speed * 3.6).roundToInt())
+        tvSpeed.text = String.format(resources.getString(R.string.tv_meter_info_speed), MeterUtil.speed * 3.6)
 
         when(MeterUtil.costType) {
             CostType.BASE_COST ->
