@@ -9,7 +9,6 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +16,6 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatButton
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.preference.PreferenceManager
-import com.fsn.cauly.CaulyAdInfoBuilder
 import com.fsn.cauly.CaulyAdView
 import com.yong.taximeter.R
 import com.yong.taximeter.service.MeterService
@@ -128,6 +126,7 @@ class MeterActivity : AppCompatActivity() {
         LocalBroadcastManager.getInstance(this).registerReceiver(statusReceiver, IntentFilter("METER_STATUS"))
         LocalBroadcastManager.getInstance(this).registerReceiver(updateReceiver, IntentFilter("UPDATE_METER"))
 
+        initCauly()
         updateView()
     }
 
@@ -153,8 +152,6 @@ class MeterActivity : AppCompatActivity() {
         if(!MeterUtil.isDriving) {
             MeterUtil.init(this)
         }
-
-        initCauly()
         updateView()
 
         btnPrmNight.setOnClickListener(btnListener)
@@ -165,19 +162,9 @@ class MeterActivity : AppCompatActivity() {
 
     private fun initCauly() {
         val pref = PreferenceManager.getDefaultSharedPreferences(applicationContext)
-        if(!pref.getBoolean("ad_remove", false)) {
-            val caulyLayout = findViewById<LinearLayout>(R.id.layout_meter_cauly)
-            val caulyAdInfo = CaulyAdInfoBuilder("ymwH9YIJ")
-                .bannerHeight(CaulyAdInfoBuilder.FIXED)
-                .effect("Circle")
-                .enableDefaultBannerAd(true)
-                .reloadInterval(20)
-                .setBannerSize(320, 50)
-                .build()
-
-            val caulyAdView = CaulyAdView(this)
-            caulyAdView.setAdInfo(caulyAdInfo)
-            caulyLayout.addView(caulyAdView)
+        if(pref.getBoolean("ad_remove", false)) {
+            val caulyLayout = findViewById<CaulyAdView>(R.id.layout_meter_cauly)
+            caulyLayout.visibility = View.GONE
         }
     }
 
