@@ -1,5 +1,6 @@
 package com.yong.taximeter.fragment
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.preference.PreferenceManager
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClient.BillingResponseCode
@@ -22,6 +24,7 @@ import com.android.billingclient.api.PurchasesUpdatedListener
 import com.android.billingclient.api.QueryProductDetailsParams
 import com.android.billingclient.api.consumePurchase
 import com.yong.taximeter.R
+import com.yong.taximeter.util.Util
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -55,6 +58,27 @@ class MainDonateFragment : Fragment() {
         btnCoke.setOnClickListener(btnListener)
         btnDinner.setOnClickListener(btnListener)
         btnMoney.setOnClickListener(btnListener)
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && Util.isUsingNightModeResources(requireContext())) {
+            btnAdremove.setCompoundDrawablesWithIntrinsicBounds(null,
+                AppCompatResources.getDrawable(requireContext(), R.drawable.ic_donate_adremove_dark),
+                null, null)
+            btnBigmac.setCompoundDrawablesWithIntrinsicBounds(null,
+                AppCompatResources.getDrawable(requireContext(), R.drawable.ic_donate_bigmac_dark),
+                null, null)
+            btnCoffee.setCompoundDrawablesWithIntrinsicBounds(null,
+                AppCompatResources.getDrawable(requireContext(), R.drawable.ic_donate_coffee_dark),
+                null, null)
+            btnCoke.setCompoundDrawablesWithIntrinsicBounds(null,
+                AppCompatResources.getDrawable(requireContext(), R.drawable.ic_donate_coke_dark),
+                null, null)
+            btnDinner.setCompoundDrawablesWithIntrinsicBounds(null,
+                AppCompatResources.getDrawable(requireContext(), R.drawable.ic_donate_dinner_dark),
+                null, null)
+            btnMoney.setCompoundDrawablesWithIntrinsicBounds(null,
+                AppCompatResources.getDrawable(requireContext(), R.drawable.ic_donate_money_dark),
+                null, null)
+        }
 
         initBillingClient()
 
