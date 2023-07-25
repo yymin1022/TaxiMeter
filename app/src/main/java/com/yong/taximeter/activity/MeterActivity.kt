@@ -61,9 +61,11 @@ class MeterActivity : AppCompatActivity() {
         when(view.id) {
             R.id.btn_meter_premium_night -> {
                 if(MeterUtil.isPrmNight) {
+                    MeterUtil.applyBaseCostNightPremium(false)
                     MeterUtil.isPrmNight = false
                     btnPrmNight.text = resources.getString(R.string.btn_meter_premium_night_off)
                 } else {
+                    MeterUtil.applyBaseCostNightPremium(true)
                     MeterUtil.isPrmNight = true
                     btnPrmNight.text = resources.getString(R.string.btn_meter_premium_night_on)
                 }
