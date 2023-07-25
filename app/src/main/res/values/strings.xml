@@ -84,7 +84,7 @@
     <string name="tv_meter_info_premium_night">Night Premium Enabled</string>
     <string name="tv_meter_info_premium_outcity">Outcity Premium Enabled</string>
     <string name="tv_meter_info_counter">%d</string>
-    <string name="tv_meter_info_speed">Current Speed\n%dkm/h</string>
+    <string name="tv_meter_info_speed">Current Speed\n%.1fkm/h</string>
     <string name="tv_meter_info_status_driving">Status\nDriving</string>
     <string name="tv_meter_info_status_not_driving">Status\nNot Driving</string>
     <string name="tv_meter_info_status_gps_unstable">Status\nGPS is Unstable</string>
