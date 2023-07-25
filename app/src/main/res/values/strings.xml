@@ -31,6 +31,8 @@
     <string name="noti_channel_description">Notification when Meter Service is Running</string>
     <string name="noti_channel_id">DEFAULT_NOTI</string>
     <string name="noti_channel_title">Running Notification</string>
+    <string name="noti_service_content">Cost : %,d Won / Current Speed : %.1fkm/h / Driven Distance : %.1fkm</string>
+    <string name="noti_service_title">Taxi Meter is Running</string>
     <string name="noti_toast_no_permission">Location Permission is not Granted. Please Grant for Meter.</string>
     <string name="noti_toast_no_notification">Without Notification, Background Runtime might be unstable.</string>
     <string name="noti_toast_purchase_already">Already Owned Item!</string>
