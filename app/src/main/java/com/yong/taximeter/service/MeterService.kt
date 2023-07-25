@@ -62,7 +62,7 @@ class MeterService: Service(), LocationListener {
 
         createNotificationChannel()
         notificationBuilder = NotificationCompat.Builder(this, getString(R.string.noti_channel_id))
-            .setSmallIcon(R.drawable.ic_horse_1)
+            .setSmallIcon(R.drawable.ic_noti_taxi)
             .setContentTitle(getString(R.string.noti_service_title))
             .setContentText(String.format(getString(R.string.noti_service_content), MeterUtil.cost, MeterUtil.speed * 3.6, MeterUtil.distance / 1000))
             .setPriority(NotificationCompat.PRIORITY_MIN)
