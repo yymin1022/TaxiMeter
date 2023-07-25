@@ -15,10 +15,17 @@ import com.android.billingclient.api.BillingClient.ProductType
 import com.android.billingclient.api.BillingClientStateListener
 import com.android.billingclient.api.BillingFlowParams
 import com.android.billingclient.api.BillingResult
+import com.android.billingclient.api.ConsumeParams
 import com.android.billingclient.api.ProductDetails
+import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.PurchasesUpdatedListener
 import com.android.billingclient.api.QueryProductDetailsParams
+import com.android.billingclient.api.consumePurchase
 import com.yong.taximeter.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainDonateFragment : Fragment() {
     private lateinit var btnAdremove: TextView
@@ -105,16 +112,30 @@ class MainDonateFragment : Fragment() {
 
         billingClient.launchBillingFlow(requireActivity(), billingFlowParams)
     }
+    private suspend fun consumePurchase(purchase: Purchase) {
+        if(purchase.products[0].equals("ad_remove")) {
+            val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
+            val prefEd = pref.edit()
+            prefEd.putBoolean("ad_remove", true)
+            prefEd.apply()
+        } else {
+            val consumeParams =
+                ConsumeParams.newBuilder()
+                    .setPurchaseToken(purchase.purchaseToken)
+                    .build()
+            withContext(Dispatchers.IO) {
+                billingClient.consumePurchase(consumeParams)
+            }
+        }
+    }
 
     private val purchaseUpdateListener = PurchasesUpdatedListener { billingResult, purchases ->
         if(billingResult.responseCode == BillingResponseCode.OK && purchases != null) {
-            Toast.makeText(requireContext(), getString(R.string.noti_toast_purchase_error), Toast.LENGTH_SHORT).show()
-
-            if(purchases[0].products[0].equals("ad_remove")) {
-                val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
-                val prefEd = pref.edit()
-                prefEd.putBoolean("ad_remove", true)
-                prefEd.apply()
+            purchases.forEach { purchase ->
+                Toast.makeText(requireContext(), getString(R.string.noti_toast_purchase_success), Toast.LENGTH_SHORT).show()
+                CoroutineScope(Dispatchers.IO).launch {
+                    consumePurchase(purchase)
+                }
             }
         } else if(billingResult.responseCode == BillingResponseCode.ITEM_ALREADY_OWNED && purchases != null) {
             Toast.makeText(requireContext(), getString(R.string.noti_toast_purchase_already), Toast.LENGTH_SHORT).show()
