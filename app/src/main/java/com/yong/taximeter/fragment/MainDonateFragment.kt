@@ -1,5 +1,7 @@
 package com.yong.taximeter.fragment
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -191,6 +193,10 @@ class MainDonateFragment : Fragment() {
 
             R.id.tv_donate_dinner -> {
                 queryProduct("donation_50000")
+            }
+
+            R.id.tv_donate_money -> {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://paypal.me/usefulmin")))
             }
         }
     }
