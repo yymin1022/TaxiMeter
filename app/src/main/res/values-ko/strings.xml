@@ -75,6 +75,9 @@
     <string name="location_ulsan">울산광역시</string>
     <string name="location_seoul">서울특별시</string>
 
+    <string name="theme_circle">원형 타입</string>
+    <string name="theme_horse">말 타입</string>
+
     <string name="tv_donate_adremove">광고 제거하기</string>
     <string name="tv_donate_bigmac">빅맥세트 (1만원)</string>
     <string name="tv_donate_coffee">스타벅스 아메리카노 (5천원)</string>

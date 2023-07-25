@@ -75,6 +75,9 @@
     <string name="location_ulsan">Ulsan</string>
     <string name="location_seoul">Seoul</string>
 
+    <string name="theme_circle">Circle Type</string>
+    <string name="theme_horse">Horse Type</string>
+
     <string name="tv_donate_adremove">AD Remove</string>
     <string name="tv_donate_bigmac">$10 BigMac</string>
     <string name="tv_donate_coffee">$5 Starbucks</string>
