@@ -109,8 +109,8 @@ object MeterUtil {
 
             if(isPrmNight) {
                 val curH = SimpleDateFormat("HH", Locale.getDefault()).format(Calendar.getInstance().time).toInt()
-                if((curH >= 20 && curH >= percNightStart1) || (curH <= 5 && curH <= percNightEnd1)) {
-                    cost += if((curH >= 20 && curH >= percNightStart2) || (curH <= 5 && curH <= percNightEnd2)) percNight2 else percNight1
+                if((curH >= 20 && curH >= percNightStart1) || (curH <= 5 && curH < percNightEnd1)) {
+                    cost += if((curH >= 20 && curH >= percNightStart2) || (curH <= 5 && curH < percNightEnd2)) percNight2 else percNight1
                 }
             }
 
@@ -123,8 +123,8 @@ object MeterUtil {
     fun applyBaseCostNightPremium(isEnabled: Boolean) {
         val curH = SimpleDateFormat("HH", Locale.getDefault()).format(Calendar.getInstance().time).toInt()
         var premiumCost = 0
-        if((curH >= 20 && curH >= percNightStart1) || (curH <= 5 && curH <= percNightEnd1)) {
-            premiumCost = if((curH >= 20 && curH >= percNightStart2) || (curH <= 5 && curH <= percNightEnd2)) {
+        if((curH >= 20 && curH >= percNightStart1) || (curH <= 5 && curH < percNightEnd1)) {
+            premiumCost = if((curH >= 20 && curH >= percNightStart2) || (curH <= 5 && curH < percNightEnd2)) {
                 costBase * percNight2 / 100
             } else {
                 costBase * percNight1 / 100
@@ -136,6 +136,5 @@ object MeterUtil {
         } else {
             cost -= premiumCost
         }
-
     }
 }
