@@ -143,7 +143,7 @@ class MeterActivity : AppCompatActivity() {
     private fun showFinishDialog() {
         val alertDialog = AlertDialog.Builder(this)
         alertDialog.setTitle(getString(R.string.noti_alert_title))
-        alertDialog.setMessage(String.format(getString(R.string.noti_alert_message), MeterUtil.cost, MeterUtil.distance))
+        alertDialog.setMessage(String.format(getString(R.string.noti_alert_message), MeterUtil.cost, MeterUtil.distance / 1000))
         alertDialog.setPositiveButton(getString(R.string.noti_alert_close)) { dialog, _ ->
             updateView()
             dialog.dismiss()
