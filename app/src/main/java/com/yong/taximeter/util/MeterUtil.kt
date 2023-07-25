@@ -117,6 +117,10 @@ object MeterUtil {
             if(isPrmOutcity) {
                 cost += percCity
             }
+
+            if(costType == CostType.BASE_COST) {
+                costType = CostType.DISTANCE_COST
+            }
         }
     }
 
