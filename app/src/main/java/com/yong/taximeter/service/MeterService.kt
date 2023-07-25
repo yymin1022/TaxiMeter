@@ -52,6 +52,7 @@ class MeterService: Service(), LocationListener {
         MeterUtil.increaseCost(curSpeed)
 
         LocalBroadcastManager.getInstance(this).sendBroadcast(Intent("UPDATE_METER"))
+        initNotification()
     }
 
     private fun initNotification() {
@@ -62,8 +63,8 @@ class MeterService: Service(), LocationListener {
         createNotificationChannel()
         notificationBuilder = NotificationCompat.Builder(this, getString(R.string.noti_channel_id))
             .setSmallIcon(R.drawable.ic_horse_1)
-            .setContentTitle(getString(R.string.app_name))
-            .setContentText(getString(R.string.noti_channel_description))
+            .setContentTitle(getString(R.string.noti_service_title))
+            .setContentText(String.format(getString(R.string.noti_service_content), MeterUtil.cost, MeterUtil.speed * 3.6, MeterUtil.distance / 1000))
             .setPriority(NotificationCompat.PRIORITY_MIN)
             .setContentIntent(pendingIntent)
             .setAutoCancel(false)
