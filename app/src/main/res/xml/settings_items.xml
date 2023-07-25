@@ -40,6 +40,11 @@
             android:summary="@string/pref_summary_developer"/>
 
         <Preference
+            android:key="pref_info_developer_blog"
+            android:title="@string/pref_title_developer_blog"
+            android:summary="@string/pref_summary_developer_blog"/>
+
+        <Preference
             android:key="pref_info_developer_github"
             android:title="@string/pref_title_developer_github"
             android:summary="@string/pref_summary_developer_github"/>
