@@ -45,10 +45,12 @@
     <string name="pref_summary_cost_2">Base Cost : %,d Won (First %.1fkm)\n100 Won per %dm\n100 Won per %dsecs\nOuter City Premium %d%%\nNight Premium %d%% when %d:00 ~ %d:00</string>
     <string name="pref_summary_developer">CAU CSE 2019</string>
     <string name="pref_summary_developer_github">https://github.com/yymin1022</string>
+    <string name="pref_summary_privacy_policy">https://defcon.or.kr/privacy</string>
     <string name="pref_title_developer">Dev. LR</string>
     <string name="pref_title_developer_github">Developer GitHub</string>
     <string name="pref_title_cost">Cost Info</string>
     <string name="pref_title_location">Location</string>
+    <string name="pref_title_privacy_policy">Privary Policy</string>
     <string name="pref_title_theme">Meter Theme</string>
     <string name="pref_title_version">Cost DB Version</string>
 
