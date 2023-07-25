@@ -32,7 +32,7 @@
     <string name="noti_channel_id">DEFAULT_NOTI</string>
     <string name="noti_channel_title">Running Notification</string>
     <string name="noti_toast_no_permission">Location Permission is not Granted. Please Grant for Meter.</string>
-    <string name="noti_toast_no_notification">Without Notification, Backgrounf Work might be unstable.</string>
+    <string name="noti_toast_no_notification">Without Notification, Background Runtime might be unstable.</string>
     <string name="noti_toast_purchase_already">Already Owned Item!</string>
     <string name="noti_toast_purchase_canceled">Canceled Purchase</string>
     <string name="noti_toast_purchase_error">Error %d : %s</string>
@@ -52,7 +52,7 @@
     <string name="pref_title_developer_github">Developer GitHub</string>
     <string name="pref_title_cost">Cost Info</string>
     <string name="pref_title_location">Location</string>
-    <string name="pref_title_privacy_policy">Privary Policy</string>
+    <string name="pref_title_privacy_policy">Privacy Policy</string>
     <string name="pref_title_theme">Meter Theme</string>
     <string name="pref_title_version">Cost DB Version</string>
 
