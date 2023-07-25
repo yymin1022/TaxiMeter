@@ -90,6 +90,7 @@ class WelcomeLocationFragment : Fragment() {
         }
 
         prefEditor.putString("pref_location", selectedLocation)
+        prefEditor.putString("pref_theme", "horse")
         prefEditor.apply()
     }
 }
