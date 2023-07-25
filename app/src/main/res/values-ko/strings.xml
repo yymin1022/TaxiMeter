@@ -1,0 +1,107 @@
+<resources>
+    <string name="app_name">택시미터기</string>
+
+    <string name="activity_label_meter">Meter Activity</string>
+
+    <string name="btn_home_openmeter">미터기 열기</string>
+    <string name="btn_meter_premium_night_off">야간할증 미적용</string>
+    <string name="btn_meter_premium_night_on">야간할증 적용</string>
+    <string name="btn_meter_premium_outcity_off">시외할증 미적용</string>
+    <string name="btn_meter_premium_outcity_on">시외할증 적용</string>
+    <string name="btn_meter_start">주행 시작</string>
+    <string name="btn_meter_stop">주행 종료</string>
+
+    <string name="firebase_toast_fail">요금정보 DB의 최신버전을 확인하지 못했습니다.</string>
+    <string name="firebase_toast_update">요금정보 DB를 최신버전으로 업데이트하였습니다.</string>
+
+    <string name="fragment_label_donate">Donate Fragment</string>
+    <string name="fragment_label_home">Home Fragment</string>
+    <string name="fragment_label_setting">Setting Fragment</string>
+
+    <string name="iv_desc_meter_runner">Meter Runner</string>
+    <string name="iv_desc_welcome_permission_taxi">Taxi Meter</string>
+
+    <string name="menu_main_donate">결제</string>
+    <string name="menu_main_home">홈</string>
+    <string name="menu_main_setting">설정</string>
+
+    <string name="noti_alert_close">닫기</string>
+    <string name="noti_alert_message">요금 : %,d원\n주행 거리 : %.1fkm</string>
+    <string name="noti_alert_title">주행이 종료되었습니다.</string>
+    <string name="noti_channel_description">택시미터기가 동작중일 때 표시되는 알림입니다.</string>
+    <string name="noti_channel_id">DEFAULT_NOTI</string>
+    <string name="noti_channel_title">택시미터기 동작 알림</string>
+    <string name="noti_service_content">현재 요금 : %,d원 / 현재 속도 : %.1fkm/h / 주행 거리 : %.1fkm</string>
+    <string name="noti_service_title">택시미터기가 동작중입니다.</string>
+    <string name="noti_toast_no_permission">위치권한이 부여되지 않았습니다. 미터기 기능의 동작을 위해 부여해주세요.</string>
+    <string name="noti_toast_no_notification">알림권한이 부여되지 않았습니다. 백그라운드 동작이 불안정할 수 있습니다.</string>
+    <string name="noti_toast_purchase_already">이미 구매된 항목입니다. 개발자에게 문의해주세요.</string>
+    <string name="noti_toast_purchase_canceled">결제가 취소되었습니다.</string>
+    <string name="noti_toast_purchase_error">Error %d : %s</string>
+    <string name="noti_toast_purchase_success">결제가 완료되었습니다. 감사합니다!</string>
+
+    <string name="pref_category_dev_info">개발자 정보</string>
+    <string name="pref_category_meter">미터기 설정</string>
+    <string name="pref_category_meter_info">미터기 정보</string>
+    <string name="pref_summary_cost_1">기본요금 : %,d원 (최초 %.1fkm)\n거리요금 %dm당 100원\n시간요금 %d초당 100원\n시외할증 %d%%\n야간할증\n - %d%% (%d:00 ~ %d:00)\n - %d%% (%d:00 ~ %d:00)</string>
+    <string name="pref_summary_cost_2">기본요금 : %,d원 (최초 %.1fkm)\n거리요금 %dm당 100원\n시간요금 %d초당 100원\n시외할증 %d%%\n야간할증\n - %d%% (%d:00 ~ %d:00)</string>
+    <string name="pref_summary_developer">중앙대학교 소프트웨어학부 2019</string>
+    <string name="pref_summary_developer_blog">https://dev-lr.com</string>
+    <string name="pref_summary_developer_github">https://github.com/yymin1022</string>
+    <string name="pref_summary_privacy_policy">https://defcon.or.kr/privacy</string>
+    <string name="pref_title_developer">Dev. LR</string>
+    <string name="pref_title_developer_blog">개발자 블로그</string>
+    <string name="pref_title_developer_github">개발자 GitHub</string>
+    <string name="pref_title_cost">요금 정보</string>
+    <string name="pref_title_location">위치</string>
+    <string name="pref_title_privacy_policy">개인정보 처리방침</string>
+    <string name="pref_title_theme">미터기 테마</string>
+    <string name="pref_title_version">요금정보 DB 버전</string>
+
+    <string name="location_busan">부산광역시</string>
+    <string name="location_chungbuk">충청북도</string>
+    <string name="location_chungnam">충청남도</string>
+    <string name="location_daegu">대구광역시</string>
+    <string name="location_daejeon">대전광역시</string>
+    <string name="location_gangwon">강원도</string>
+    <string name="location_gwangju">광주광역시</string>
+    <string name="location_gyeongbuk">경상북도</string>
+    <string name="location_gyeonggi">경기도</string>
+    <string name="location_gyeongnam">경상남도</string>
+    <string name="location_incheon">인천광역시</string>
+    <string name="location_jeju">제주특별자치도</string>
+    <string name="location_jeonbuk">전라북도</string>
+    <string name="location_jeonnam">전라남도</string>
+    <string name="location_ulsan">울산광역시</string>
+    <string name="location_seoul">서울특별시</string>
+
+    <string name="tv_donate_adremove">광고 제거하기</string>
+    <string name="tv_donate_bigmac">빅맥세트 (1만원)</string>
+    <string name="tv_donate_coffee">스타벅스 아메리카노 (5천원)</string>
+    <string name="tv_donate_coke">콜라 (1천원)</string>
+    <string name="tv_donate_dinner">뷔페식사 (5만원)</string>
+    <string name="tv_donate_money">Paypal</string>
+    <string name="tv_home_info">터치하여 시작하기</string>
+    <string name="tv_home_title_meter">미터기</string>
+    <string name="tv_home_title_taxi">택시</string>
+    <string name="tv_meter_info_cost">%,d원</string>
+    <string name="tv_meter_info_cost_type_base">요금 종류\n기본요금</string>
+    <string name="tv_meter_info_cost_type_distance">요금 종류\n거리요금</string>
+    <string name="tv_meter_info_cost_type_time">요금 종류\n시간요금</string>
+    <string name="tv_meter_info_distance">주행거리\n%.1fkm</string>
+    <string name="tv_meter_info_premium_night">야간할증 적용 중</string>
+    <string name="tv_meter_info_premium_outcity">시외할증 적용 중</string>
+    <string name="tv_meter_info_counter">%d</string>
+    <string name="tv_meter_info_speed">현재 속도\n%.1fkm/h</string>
+    <string name="tv_meter_info_status_driving">상태\n주행 중</string>
+    <string name="tv_meter_info_status_not_driving">상태\n주행 중 아님</string>
+    <string name="tv_meter_info_status_gps_unstable">상태\nGPS 연결 대기중</string>
+    <string name="tv_welcome_location_info">추후 앱 내 설정에서 변경하실 수 있습니다.</string>
+    <string name="tv_welcome_location_next">다음</string>
+    <string name="tv_welcome_location_title">미터기 요금을 적용할 지역을 선택해주세요.</string>
+    <string name="tv_welcome_location_warning">!! 경고 !!\n본 애플리케이션을 이용해 금전을 결제받는 경우에는 대한민국 법률에 의하여 처벌될 수 있습니다.</string>
+    <string name="tv_welcome_permission_grant_location">위치권한 부여하기</string>
+    <string name="tv_welcome_permission_grant_notification">알림권한 부여하기</string>
+    <string name="tv_welcome_permission_info">택시미터기 기능의 동작을 위해 위치권한과 알림권한을 부여해주세요.\n부여되지 않는 경우, GPS가 올바르게 동작하지 않거나 백그라운드 동작이 불안정할 수 있습니다.</string>
+    <string name="tv_welcome_permission_next">다음</string>
+</resources>
