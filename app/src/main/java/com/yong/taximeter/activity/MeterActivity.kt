@@ -69,6 +69,7 @@ class MeterActivity : AppCompatActivity() {
                     MeterUtil.isPrmNight = true
                     btnPrmNight.text = resources.getString(R.string.btn_meter_premium_night_on)
                 }
+                updateView()
             }
             R.id.btn_meter_premium_outcity -> {
                 if(MeterUtil.isPrmOutcity) {
