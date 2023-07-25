@@ -2,6 +2,7 @@ package com.yong.taximeter.util
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.preference.PreferenceManager
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -42,14 +43,14 @@ object MeterUtil {
     var costType = CostType.BASE_COST
     var counter = 0
     var distance = 0.0
-    var speed = 0
+    var speed = 0f
     var status = MeterStatus.NOT_DRIVING
     var theme = MeterTheme.THEME_HORSE
 
     var isDriving = false
-
     var isPrmNight = false
     var isPrmOutcity = false
+    var lastUpdateTime = 0L
 
     fun init(context: Context) {
         pref = PreferenceManager.getDefaultSharedPreferences(context)
@@ -77,7 +78,7 @@ object MeterUtil {
         costType = CostType.BASE_COST
         counter = distBase
         distance = 0.0
-        speed = 0
+        speed = 0f
         status = MeterStatus.NOT_DRIVING
 
         isPrmNight = false
@@ -85,14 +86,23 @@ object MeterUtil {
     }
 
     fun increaseCost(curSpeed: Int) {
-        speed = curSpeed
+        val curTime = System.currentTimeMillis()
+        if(lastUpdateTime == 0L) {
+            lastUpdateTime = curTime
+        }
+
+        val deltaTime = (curTime - lastUpdateTime).toInt() / 1000f
+        lastUpdateTime = curTime
+        Log.d("AAA", deltaTime.toString())
+
+        speed = curSpeed.toFloat()
         status = MeterStatus.DRIVING
 
-        counter -= speed / 2
-        distance += speed / 2
+        counter -= (speed * deltaTime).toInt()
+        distance += speed * deltaTime
 
         if(speed < 4.2) {
-            counter -= costRunPer / costTimePer / 2
+            counter -= (costRunPer / costTimePer * deltaTime).toInt()
 
             if(costType == CostType.DISTANCE_COST) {
                 costType = CostType.TIME_COST

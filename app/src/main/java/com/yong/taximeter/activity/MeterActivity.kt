@@ -172,12 +172,12 @@ class MeterActivity : AppCompatActivity() {
     }
 
     private fun updateView() {
-        ivRunner.setImageDrawable(updateRunner(MeterUtil.speed, MeterUtil.theme))
+        ivRunner.setImageDrawable(updateRunner(MeterUtil.speed.roundToInt(), MeterUtil.theme))
 
         tvCost.text = String.format(resources.getString(R.string.tv_meter_info_cost), MeterUtil.cost)
         tvCounter.text = String.format(resources.getString(R.string.tv_meter_info_counter), MeterUtil.counter)
         tvDistance.text = String.format(resources.getString(R.string.tv_meter_info_distance), MeterUtil.distance / 1000)
-        tvSpeed.text = String.format(resources.getString(R.string.tv_meter_info_speed), (MeterUtil.speed * 3.6).roundToInt())
+        tvSpeed.text = String.format(resources.getString(R.string.tv_meter_info_speed), MeterUtil.speed * 3.6)
 
         when(MeterUtil.costType) {
             CostType.BASE_COST ->
