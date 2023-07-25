@@ -31,7 +31,7 @@ class MeterService: Service(), LocationListener {
         }
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 0f, this)
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 400, 0f, this)
         MeterUtil.status = MeterStatus.GPS_UNSTABLE
 
         initNotification()
