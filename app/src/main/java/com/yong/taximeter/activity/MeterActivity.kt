@@ -81,6 +81,7 @@ class MeterActivity : AppCompatActivity() {
                     MeterUtil.isPrmOutcity = true
                     btnPrmOutcity.text = resources.getString(R.string.btn_meter_premium_outcity_on)
                 }
+                updateView()
             }
             R.id.btn_meter_start -> {
                 if(!MeterUtil.isDriving) {
