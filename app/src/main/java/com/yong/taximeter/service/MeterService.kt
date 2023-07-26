@@ -20,7 +20,6 @@ import com.yong.taximeter.util.MeterUtil
 import com.yong.taximeter.util.PermissionUtil
 import kotlin.math.roundToInt
 
-
 class MeterService: Service(), LocationListenerCompat {
     private lateinit var locationManager: LocationManager
     private lateinit var notificationBuilder: NotificationCompat.Builder
