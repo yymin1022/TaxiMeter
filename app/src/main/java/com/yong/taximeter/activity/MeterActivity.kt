@@ -68,7 +68,7 @@ class MeterActivity : AppCompatActivity() {
                 } else {
                     MeterUtil.applyBaseCostNightPremium(true)
                     MeterUtil.isPrmNight = true
-                    Toast.makeText(applicationContext, getString(R.string.noti_toast_night_prm_info, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, getString(R.string.noti_toast_night_prm_info), Toast.LENGTH_SHORT).show()
                     btnPrmNight.text = resources.getString(R.string.btn_meter_premium_night_on)
                 }
                 updateView()
