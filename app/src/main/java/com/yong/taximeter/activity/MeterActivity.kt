@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
@@ -67,6 +68,7 @@ class MeterActivity : AppCompatActivity() {
                 } else {
                     MeterUtil.applyBaseCostNightPremium(true)
                     MeterUtil.isPrmNight = true
+                    Toast.makeText(applicationContext, getString(R.string.noti_toast_night_prm_info), Toast.LENGTH_SHORT).show()
                     btnPrmNight.text = resources.getString(R.string.btn_meter_premium_night_on)
                 }
                 updateView()
@@ -79,6 +81,7 @@ class MeterActivity : AppCompatActivity() {
                     MeterUtil.isPrmOutcity = true
                     btnPrmOutcity.text = resources.getString(R.string.btn_meter_premium_outcity_on)
                 }
+                updateView()
             }
             R.id.btn_meter_start -> {
                 if(!MeterUtil.isDriving) {
