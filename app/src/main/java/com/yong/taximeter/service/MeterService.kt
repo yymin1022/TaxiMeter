@@ -34,7 +34,7 @@ class MeterService: Service(), LocationListenerCompat {
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 300, 0f, this)
         MeterUtil.status = MeterStatus.GPS_UNSTABLE
 
-        initNotification()
+        initNotification(true)
         LocalBroadcastManager.getInstance(this).sendBroadcast(Intent("UPDATE_METER"))
 
         return super.onStartCommand(intent, flags, startId)
@@ -52,10 +52,10 @@ class MeterService: Service(), LocationListenerCompat {
         MeterUtil.increaseCost(curSpeed)
 
         LocalBroadcastManager.getInstance(this).sendBroadcast(Intent("UPDATE_METER"))
-        initNotification()
+        initNotification(false)
     }
 
-    private fun initNotification() {
+    private fun initNotification(isFirst: Boolean) {
         val notiIntent = Intent(this, MeterActivity::class.java)
         notiIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK and Intent.FLAG_ACTIVITY_CLEAR_TASK
         val pendingIntent = PendingIntent.getActivity(this, 0, notiIntent, PendingIntent.FLAG_IMMUTABLE)
@@ -69,7 +69,12 @@ class MeterService: Service(), LocationListenerCompat {
             .setContentIntent(pendingIntent)
             .setAutoCancel(false)
 
-        startForeground(1022, notificationBuilder.build())
+        if(isFirst) {
+            startForeground(1022, notificationBuilder.build())
+        } else {
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(1022, notificationBuilder.build())
+        }
     }
 
     private fun createNotificationChannel() {
