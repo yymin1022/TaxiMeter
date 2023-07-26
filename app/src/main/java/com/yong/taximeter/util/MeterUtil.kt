@@ -2,7 +2,6 @@ package com.yong.taximeter.util
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
 import androidx.preference.PreferenceManager
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -27,6 +26,8 @@ enum class MeterTheme {
 
 object MeterUtil {
     private lateinit var pref: SharedPreferences
+    private var lastUpdateTime = 0L
+
     private var costBase = 0
     private var costRunPer = 0
     private var costTimePer = 0
@@ -50,7 +51,6 @@ object MeterUtil {
     var isDriving = false
     var isPrmNight = false
     var isPrmOutcity = false
-    var lastUpdateTime = 0L
 
     fun init(context: Context) {
         pref = PreferenceManager.getDefaultSharedPreferences(context)
@@ -93,7 +93,6 @@ object MeterUtil {
 
         val deltaTime = (curTime - lastUpdateTime).toInt() / 1000f
         lastUpdateTime = curTime
-        Log.d("AAA", deltaTime.toString())
 
         speed = curSpeed.toFloat()
         status = MeterStatus.DRIVING
