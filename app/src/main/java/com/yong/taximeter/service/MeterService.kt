@@ -7,11 +7,11 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.location.Location
-import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
+import androidx.core.location.LocationListenerCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.yong.taximeter.R
 import com.yong.taximeter.activity.MeterActivity
@@ -20,7 +20,8 @@ import com.yong.taximeter.util.MeterUtil
 import com.yong.taximeter.util.PermissionUtil
 import kotlin.math.roundToInt
 
-class MeterService: Service(), LocationListener {
+
+class MeterService: Service(), LocationListenerCompat {
     private lateinit var locationManager: LocationManager
     private lateinit var notificationBuilder: NotificationCompat.Builder
 
