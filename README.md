@@ -1,7 +1,8 @@
 # 택시미터기 for Android
 
-<img src="Images/app_1.png" width="30%" height="30%" alt="Screenshot"></img>
-<img src="Images/app_2.png" width="30%" height="30%" alt="Screenshot"></img>
+<img src="README_Images/app_1.png" width="30%" height="30%" alt="Screenshot"></img>
+<img src="README_Images/app_2.png" width="30%" height="30%" alt="Screenshot"></img>
+<img src="README_Images/app_3.png" width="30%" height="30%" alt="Screenshot"></img>
 
 Android 에서 사용 가능한 택시미터기 애플리케이션입니다.
 
