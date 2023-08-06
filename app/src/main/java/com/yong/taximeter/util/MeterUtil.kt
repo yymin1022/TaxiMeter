@@ -150,4 +150,12 @@ object MeterUtil {
             cost -= premiumCost
         }
     }
+
+    fun applyBaseCostOutcityPremium(isEnabled: Boolean) {
+        if(isEnabled) {
+            cost += costBase * percCity / 100
+        } else {
+            cost -= costBase * percCity / 100
+        }
+    }
 }

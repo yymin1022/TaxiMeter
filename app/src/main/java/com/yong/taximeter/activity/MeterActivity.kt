@@ -76,9 +76,11 @@ class MeterActivity : AppCompatActivity() {
             }
             R.id.btn_meter_premium_outcity -> {
                 if(MeterUtil.isPrmOutcity) {
+                    MeterUtil.applyBaseCostOutcityPremium(false)
                     MeterUtil.isPrmOutcity = false
                     btnPrmOutcity.text = resources.getString(R.string.btn_meter_premium_outcity_off)
                 } else {
+                    MeterUtil.applyBaseCostOutcityPremium(true)
                     MeterUtil.isPrmOutcity = true
                     btnPrmOutcity.text = resources.getString(R.string.btn_meter_premium_outcity_on)
                 }
