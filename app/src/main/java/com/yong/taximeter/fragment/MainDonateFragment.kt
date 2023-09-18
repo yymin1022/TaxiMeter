@@ -141,11 +141,13 @@ class MainDonateFragment : Fragment() {
         billingClient.launchBillingFlow(requireActivity(), billingFlowParams)
     }
     private suspend fun consumePurchase(purchase: Purchase) {
-        if(purchase.products[0].equals("ad_remove")) {
-            val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
-            val prefEd = pref.edit()
-            prefEd.putBoolean("ad_remove", true)
-            prefEd.apply()
+        purchase.products.forEach { productID ->
+            if(productID.equals("ad_remove")) {
+                val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                val prefEd = pref.edit()
+                prefEd.putBoolean("ad_remove", true)
+                prefEd.apply()
+            }
         }
 
         val consumeParams =
