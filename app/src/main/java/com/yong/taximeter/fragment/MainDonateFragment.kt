@@ -191,6 +191,8 @@ class MainDonateFragment : Fragment() {
             Toast.makeText(requireContext(), String.format(getString(R.string.noti_toast_purchase_error, billingResult.responseCode, billingResult.debugMessage)), Toast.LENGTH_SHORT).show()
             Log.e("PURCHASE_UPDATE", billingResult.debugMessage)
         }
+
+        queryLastPurchase()
     }
 
     private val btnListener = View.OnClickListener { view ->
