@@ -145,7 +145,7 @@ class MainDonateFragment : Fragment() {
             prefEd.putBoolean("ad_remove", true)
             prefEd.apply()
         }
-        
+
         val consumeParams =
             ConsumeParams.newBuilder()
                 .setPurchaseToken(purchase.purchaseToken)
@@ -165,6 +165,12 @@ class MainDonateFragment : Fragment() {
             }
         } else if(billingResult.responseCode == BillingResponseCode.ITEM_ALREADY_OWNED && purchases != null) {
             Toast.makeText(requireContext(), getString(R.string.noti_toast_purchase_already), Toast.LENGTH_SHORT).show()
+            purchases.forEach { purchase ->
+                Toast.makeText(requireContext(), getString(R.string.noti_toast_purchase_success), Toast.LENGTH_SHORT).show()
+                CoroutineScope(Dispatchers.IO).launch {
+                    consumePurchase(purchase)
+                }
+            }
         } else if(billingResult.responseCode == BillingResponseCode.USER_CANCELED) {
             Toast.makeText(requireContext(), getString(R.string.noti_toast_purchase_canceled), Toast.LENGTH_SHORT).show()
         } else {
