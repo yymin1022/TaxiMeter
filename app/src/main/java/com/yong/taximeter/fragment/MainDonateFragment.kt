@@ -24,7 +24,9 @@ import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.PurchasesUpdatedListener
 import com.android.billingclient.api.QueryProductDetailsParams
+import com.android.billingclient.api.QueryPurchaseHistoryParams
 import com.android.billingclient.api.consumePurchase
+import com.android.billingclient.api.queryPurchaseHistory
 import com.yong.taximeter.R
 import com.yong.taximeter.util.Util
 import kotlinx.coroutines.CoroutineScope
@@ -152,6 +154,24 @@ class MainDonateFragment : Fragment() {
                 .build()
         withContext(Dispatchers.IO) {
             billingClient.consumePurchase(consumeParams)
+        }
+    }
+
+    private fun queryLastPurchase() {
+        val params = QueryPurchaseHistoryParams.newBuilder().setProductType(ProductType.INAPP)
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val purchaseHistoryResult = billingClient.queryPurchaseHistory(params.build())
+            purchaseHistoryResult.purchaseHistoryRecordList?.forEach { purchaseHistoryRecord ->
+                purchaseHistoryRecord.products.forEach { productID ->
+                    if(productID.equals("ad_remove")){
+                        val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                        val prefEd = pref.edit()
+                        prefEd.putBoolean("ad_remove", true)
+                        prefEd.apply()
+                    }
+                }
+            }
         }
     }
 
