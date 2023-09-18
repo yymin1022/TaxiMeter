@@ -12,8 +12,8 @@ android {
         applicationId 'com.yong.taximeter'
         minSdk 24
         targetSdk 34
-        versionCode 34
-        versionName '2.0_release1'
+        versionCode 35
+        versionName '2.0_release2'
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
