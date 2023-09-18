@@ -30,9 +30,9 @@ class MainSettingFragment : PreferenceFragmentCompat() {
         arrThemeKey = resources.getStringArray(R.array.pref_theme)
         arrThemeValue = resources.getStringArray(R.array.pref_theme_value)
 
-        findPreference<Preference>("pref_info_developer_blog")!!.setOnPreferenceClickListener(prefClickListener)
-        findPreference<Preference>("pref_info_developer_github")!!.setOnPreferenceClickListener(prefClickListener)
-        findPreference<Preference>("pref_info_privacy_policy")!!.setOnPreferenceClickListener(prefClickListener)
+        findPreference<Preference>("pref_info_developer_blog")!!.onPreferenceClickListener = prefClickListener
+        findPreference<Preference>("pref_info_developer_github")!!.onPreferenceClickListener = prefClickListener
+        findPreference<Preference>("pref_info_privacy_policy")!!.onPreferenceClickListener = prefClickListener
 
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         pref.registerOnSharedPreferenceChangeListener(prefListener)
