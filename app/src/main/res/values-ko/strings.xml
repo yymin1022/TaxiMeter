@@ -36,7 +36,7 @@
     <string name="noti_toast_night_prm_info">야간할증은 정해진 시간에만 적용됩니다.</string>
     <string name="noti_toast_no_permission">위치권한이 부여되지 않았습니다. 미터기 기능의 동작을 위해 부여해주세요.</string>
     <string name="noti_toast_no_notification">알림권한이 부여되지 않았습니다. 백그라운드 동작이 불안정할 수 있습니다.</string>
-    <string name="noti_toast_purchase_already">이미 구매된 항목입니다. 개발자에게 문의해주세요.</string>
+    <string name="noti_toast_purchase_already">이미 구매된 항목입니다.</string>
     <string name="noti_toast_purchase_canceled">결제가 취소되었습니다.</string>
     <string name="noti_toast_purchase_error">Error %d : %s</string>
     <string name="noti_toast_purchase_success">결제가 완료되었습니다. 감사합니다!</string>
