@@ -32,6 +32,7 @@ class MainSettingFragment : PreferenceFragmentCompat() {
 
         findPreference<Preference>("pref_info_developer_blog")!!.onPreferenceClickListener = prefClickListener
         findPreference<Preference>("pref_info_developer_github")!!.onPreferenceClickListener = prefClickListener
+        findPreference<Preference>("pref_info_developer_instagram")!!.onPreferenceClickListener = prefClickListener
         findPreference<Preference>("pref_info_privacy_policy")!!.onPreferenceClickListener = prefClickListener
 
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
@@ -64,6 +65,10 @@ class MainSettingFragment : PreferenceFragmentCompat() {
 
             "pref_info_developer_github" -> {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/yymin1022")))
+            }
+
+            "pref_info_developer_instagram" -> {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://instagram.com/useful_min")))
             }
 
             "pref_info_privacy_policy" -> {
