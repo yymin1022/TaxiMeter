@@ -167,6 +167,7 @@ class MainDonateFragment : Fragment() {
             purchaseHistoryResult.purchaseHistoryRecordList?.forEach { purchaseHistoryRecord ->
                 purchaseHistoryRecord.products.forEach { productID ->
                     if(productID.equals("ad_remove")){
+                        Toast.makeText(requireContext(), getString(R.string.noti_toast_purchase_adremove), Toast.LENGTH_SHORT).show()
                         val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
                         val prefEd = pref.edit()
                         prefEd.putBoolean("ad_remove", true)
