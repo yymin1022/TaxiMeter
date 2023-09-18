@@ -36,8 +36,8 @@
     <string name="noti_toast_night_prm_info">Night Premium will be applied only at certain time.</string>
     <string name="noti_toast_no_permission">Location Permission is not Granted. Please Grant for Meter.</string>
     <string name="noti_toast_no_notification">Without Notification, Background Runtime might be unstable.</string>
+    <string name="noti_toast_purchase_adremove">Advertise Remove is Applied</string>
     <string name="noti_toast_purchase_already">Already Owned Item!</string>
-    <string name="noti_toast_purchase_already_adremove">Already Owned Item! Advertise Remove is Applied</string>
     <string name="noti_toast_purchase_canceled">Canceled Purchase</string>
     <string name="noti_toast_purchase_error">Error %d : %s</string>
     <string name="noti_toast_purchase_success">Successfully Purchased. Thanks!</string>
