@@ -49,10 +49,12 @@
     <string name="pref_summary_developer">CAU CSE 2019</string>
     <string name="pref_summary_developer_blog">https://dev-lr.com</string>
     <string name="pref_summary_developer_github">https://github.com/yymin1022</string>
+    <string name="pref_summary_developer_instagram">https://instagram.com/useful_min</string>
     <string name="pref_summary_privacy_policy">https://defcon.or.kr/privacy</string>
     <string name="pref_title_developer">Dev. LR</string>
     <string name="pref_title_developer_blog">Developer Blog</string>
     <string name="pref_title_developer_github">Developer GitHub</string>
+    <string name="pref_title_developer_instagram">Developer Instagram</string>
     <string name="pref_title_cost">Cost Info</string>
     <string name="pref_title_location">Location</string>
     <string name="pref_title_privacy_policy">Privacy Policy</string>
