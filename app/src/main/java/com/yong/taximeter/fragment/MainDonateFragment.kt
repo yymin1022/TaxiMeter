@@ -140,7 +140,7 @@ class MainDonateFragment : Fragment() {
 
         billingClient.launchBillingFlow(requireActivity(), billingFlowParams)
     }
-    private suspend fun consumePurchase(purchase: Purchase) {
+    private fun consumePurchase(purchase: Purchase) {
         purchase.products.forEach { productID ->
             if(productID.equals("ad_remove")) {
                 val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
@@ -154,7 +154,7 @@ class MainDonateFragment : Fragment() {
             ConsumeParams.newBuilder()
                 .setPurchaseToken(purchase.purchaseToken)
                 .build()
-        withContext(Dispatchers.IO) {
+        CoroutineScope(Dispatchers.IO).launch {
             billingClient.consumePurchase(consumeParams)
         }
     }
@@ -181,9 +181,7 @@ class MainDonateFragment : Fragment() {
         if(billingResult.responseCode == BillingResponseCode.OK && purchases != null) {
             purchases.forEach { purchase ->
                 Toast.makeText(requireContext(), getString(R.string.noti_toast_purchase_success), Toast.LENGTH_SHORT).show()
-                CoroutineScope(Dispatchers.IO).launch {
-                    consumePurchase(purchase)
-                }
+                consumePurchase(purchase)
             }
         } else if(billingResult.responseCode == BillingResponseCode.ITEM_ALREADY_OWNED) {
             Toast.makeText(requireContext(), getString(R.string.noti_toast_purchase_already), Toast.LENGTH_SHORT).show()
