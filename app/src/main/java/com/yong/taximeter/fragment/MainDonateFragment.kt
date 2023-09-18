@@ -144,14 +144,14 @@ class MainDonateFragment : Fragment() {
             val prefEd = pref.edit()
             prefEd.putBoolean("ad_remove", true)
             prefEd.apply()
-        } else {
-            val consumeParams =
-                ConsumeParams.newBuilder()
-                    .setPurchaseToken(purchase.purchaseToken)
-                    .build()
-            withContext(Dispatchers.IO) {
-                billingClient.consumePurchase(consumeParams)
-            }
+        }
+        
+        val consumeParams =
+            ConsumeParams.newBuilder()
+                .setPurchaseToken(purchase.purchaseToken)
+                .build()
+        withContext(Dispatchers.IO) {
+            billingClient.consumePurchase(consumeParams)
         }
     }
 
