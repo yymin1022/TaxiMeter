@@ -56,10 +56,10 @@ class MainSettingFragment : PreferenceFragmentCompat() {
                     if(locationValue == "custom"){
 
                         val dialogBuilder = AlertDialog.Builder(requireContext())
-                        dialogBuilder.setTitle("Custom Cost Setup")
+                        dialogBuilder.setTitle(getString(R.string.dialog_custom_title))
                         dialogBuilder.setView(R.layout.dialog_custom_cost)
-                        dialogBuilder.setPositiveButton("OK", customCostDialogListener)
-                        dialogBuilder.setNegativeButton("Cancel", customCostDialogListener)
+                        dialogBuilder.setPositiveButton(getString(R.string.dialog_custom_btn_ok), customCostDialogListener)
+                        dialogBuilder.setNegativeButton(getString(R.string.dialog_custom_btn_cancel), customCostDialogListener)
                         dialogBuilder.show()
                     }else{
                         val locationKey = arrLocationKey[arrLocationValue.indexOf(locationValue)]
@@ -103,7 +103,7 @@ class MainSettingFragment : PreferenceFragmentCompat() {
                     prefEditCost.putInt("perc_night_end_2", inputNightPremiumEnd.text.toString().toInt())
                     prefEditCost.apply()
                 } catch(e: Exception) {
-                    Toast.makeText(requireContext(), "Input is too Large or has Error", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), getString(R.string.noti_toast_custom_cost_error), Toast.LENGTH_LONG).show()
                 }
 
                 val locationKey = arrLocationKey[arrLocationValue.indexOf("custom")]
