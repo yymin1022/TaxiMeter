@@ -201,19 +201,19 @@ class MeterActivity : AppCompatActivity(), CaulyAdViewListener {
     }
 
     override fun onReceiveAd(p0: CaulyAdView?, p1: Boolean) {
-        Log.d("CaulyExample", "banner AD received.")
+        Log.d("CAULY", "Banner AD has been received.")
     }
 
     override fun onFailedToReceiveAd(p0: CaulyAdView?, p1: Int, p2: String?) {
-        Log.d("CaulyExample", "failed to receive banner AD.")
+        Log.d("CAULY", "Failed to receive banner AD.")
     }
 
     override fun onShowLandingScreen(p0: CaulyAdView?) {
-        TODO("Not yet implemented")
+        Log.d("CAULY", "CAULY Landing has been showed.")
     }
 
     override fun onCloseLandingScreen(p0: CaulyAdView?) {
-        TODO("Not yet implemented")
+        Log.d("CAULY", "CAULY Landing has been closed.")
     }
 
     private fun updateView() {
