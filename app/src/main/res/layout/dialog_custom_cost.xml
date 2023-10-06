@@ -9,48 +9,56 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Base Cost"
+        android:inputType="number"
         android:id="@+id/input_custom_dialog_base" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Base Cost for"
+        android:inputType="number"
         android:id="@+id/input_custom_dialog_base_distance" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Cost per Distance"
+        android:inputType="number"
         android:id="@+id/input_custom_dialog_distance" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Cost per Time"
+        android:inputType="number"
         android:id="@+id/input_custom_dialog_time" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Outcity Premium"
+        android:inputType="number"
         android:id="@+id/input_custom_dialog_premium_outcity" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Night Premium"
+        android:inputType="number"
         android:id="@+id/input_custom_dialog_premium_night" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Night Premium Start"
+        android:inputType="time"
         android:id="@+id/input_custom_dialog_premium_night_start" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Night Premium End"
+        android:inputType="time"
         android:id="@+id/input_custom_dialog_premium_night_end" />
 
 </LinearLayout>
