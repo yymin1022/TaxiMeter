@@ -14,6 +14,14 @@
     <string name="dialog_custom_title">Custom Cost</string>
     <string name="dialog_custom_btn_ok">Done</string>
     <string name="dialog_custom_btn_cancel">Cancel</string>
+    <string name="dialog_custom_hint_base">Base Cost</string>
+    <string name="dialog_custom_hint_base_distance">Distance for Base Cost (Meter)</string>
+    <string name="dialog_custom_hint_cost_per_distance">Distance Cost per (Meter)</string>
+    <string name="dialog_custom_hint_cost_per_time">Time Cost per (Seconds)</string>
+    <string name="dialog_custom_hint_premium_outcity">Outcity Premium Percentage</string>
+    <string name="dialog_custom_hint_premium_night">Night Premium Percentage</string>
+    <string name="dialog_custom_hint_premium_night_start">Night Premium Start Hour (24-Format)</string>
+    <string name="dialog_custom_hint_premium_night_end">Night Premium End Hour (24-Format)</string>
 
     <string name="firebase_toast_fail">Failed to get Cost DB Version</string>
     <string name="firebase_toast_update">Updated Cost DB to Latest</string>

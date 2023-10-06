@@ -14,6 +14,14 @@
     <string name="dialog_custom_title">요금제 직접 설정</string>
     <string name="dialog_custom_btn_ok">완료</string>
     <string name="dialog_custom_btn_cancel">취소</string>
+    <string name="dialog_custom_hint_base">기본요금</string>
+    <string name="dialog_custom_hint_base_distance">기본요금 주행거리 (미터)</string>
+    <string name="dialog_custom_hint_cost_per_distance">거리요금 기준 거리 (미타)</string>
+    <string name="dialog_custom_hint_cost_per_time">시간요금 기준 시간 (초)</string>
+    <string name="dialog_custom_hint_premium_outcity">시외할증 비율</string>
+    <string name="dialog_custom_hint_premium_night">야간할증 비율</string>
+    <string name="dialog_custom_hint_premium_night_start">야간할증 시작 (24시간 단위)</string>
+    <string name="dialog_custom_hint_premium_night_end">야간할증 종료 (24시간 단위)</string>
 
     <string name="firebase_toast_fail">요금정보 DB의 최신버전을 확인하지 못했습니다.</string>
     <string name="firebase_toast_update">요금정보 DB를 최신버전으로 업데이트하였습니다.</string>
