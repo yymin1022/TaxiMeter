@@ -1,11 +1,13 @@
 package com.yong.taximeter.fragment
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener
 import android.net.Uri
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
@@ -17,6 +19,7 @@ const val PREF_KEY_INFO_COST = "pref_info_cost"
 const val PREF_KEY_INFO_VERSION = "pref_info_version"
 class MainSettingFragment : PreferenceFragmentCompat() {
     private lateinit var pref: SharedPreferences
+    private lateinit var prefEdit: SharedPreferences.Editor
     private lateinit var arrLocationKey: Array<String>
     private lateinit var arrLocationValue: Array<String>
     private lateinit var arrThemeKey: Array<String>
@@ -37,6 +40,7 @@ class MainSettingFragment : PreferenceFragmentCompat() {
 
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         pref.registerOnSharedPreferenceChangeListener(prefListener)
+        prefEdit = pref.edit()
 
         initSummary()
     }
@@ -46,9 +50,19 @@ class MainSettingFragment : PreferenceFragmentCompat() {
             when(key) {
                 PREF_KEY_LOCATION -> {
                     val locationValue = sharedPreferences.getString(key, "seoul")!!
-                    val locationKey = arrLocationKey[arrLocationValue.indexOf(locationValue)]
-                    updateCostInfo(locationValue)
-                    updateSummary(key, locationKey)
+
+                    if(locationValue == "custom"){
+                        val dialogBuilder = AlertDialog.Builder(requireContext())
+                        dialogBuilder.setTitle("Custom Cost Setup")
+                        dialogBuilder.setView(R.layout.dialog_custom_cost)
+                        dialogBuilder.setPositiveButton("OK", customCostDialogListener)
+                        dialogBuilder.setNegativeButton("Cancel", customCostDialogListener)
+                        dialogBuilder.show()
+                    }else{
+                        val locationKey = arrLocationKey[arrLocationValue.indexOf(locationValue)]
+                        updateCostInfo(locationValue)
+                        updateSummary(key, locationKey)
+                    }
                 }
 
                 PREF_KEY_THEME -> {
@@ -56,6 +70,17 @@ class MainSettingFragment : PreferenceFragmentCompat() {
                 }
             }
         }
+
+    private val customCostDialogListener = DialogInterface.OnClickListener { dialogInterface, id ->
+        when(id) {
+            DialogInterface.BUTTON_POSITIVE -> {
+                val locationKey = arrLocationKey[arrLocationValue.indexOf("custom")]
+                updateCostInfo("custom")
+                updateSummary(PREF_KEY_LOCATION, locationKey)}
+
+            DialogInterface.BUTTON_NEGATIVE -> {}
+        }
+    }
 
     private val prefClickListener = Preference.OnPreferenceClickListener { preference ->
         when(preference.key) {
