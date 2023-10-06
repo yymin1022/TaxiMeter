@@ -87,10 +87,10 @@ class MainSettingFragment : PreferenceFragmentCompat() {
                 val inputNightPremiumStart = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_premium_night_start)
                 val inputNightPremiumEnd = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_premium_night_end)
 
-                val prefCost = requireContext().getSharedPreferences("pref_cost_custom", Context.MODE_PRIVATE)
-                val prefEditCost = prefCost.edit()
-
                 try {
+                    val prefCost = requireContext().getSharedPreferences("pref_cost_custom", Context.MODE_PRIVATE)
+                    val prefEditCost = prefCost.edit()
+
                     prefEditCost.putInt("cost_base", inputBase!!.text.toString().toInt())
                     prefEditCost.putInt("dist_base", inputBaseDistance!!.text.toString().toInt())
                     prefEditCost.putInt("cost_run_per", inputCostDistance!!.text.toString().toInt())
@@ -103,10 +103,11 @@ class MainSettingFragment : PreferenceFragmentCompat() {
                     prefEditCost.putInt("perc_night_end_1", inputNightPremiumEnd!!.text.toString().toInt())
                     prefEditCost.putInt("perc_night_end_2", inputNightPremiumEnd.text.toString().toInt())
                     prefEditCost.apply()
-
                 } catch(e: Exception) {
                     Toast.makeText(requireContext(), getString(R.string.noti_toast_custom_cost_error), Toast.LENGTH_LONG).show()
                     locationValue = "seoul"
+                    prefEdit.putString(PREF_KEY_LOCATION, locationValue)
+                    prefEdit.apply()
                 }
 
                 val locationKey = arrLocationKey[arrLocationValue.indexOf(locationValue)]
