@@ -7,9 +7,11 @@ import android.content.IntentFilter
 import android.graphics.drawable.AnimationDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -18,7 +20,10 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatButton
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.preference.PreferenceManager
+import com.fsn.cauly.CaulyAdInfoBuilder
 import com.fsn.cauly.CaulyAdView
+import com.fsn.cauly.CaulyAdViewListener
+import com.fsn.cauly.Logger
 import com.yong.taximeter.R
 import com.yong.taximeter.service.MeterService
 import com.yong.taximeter.util.CostType
@@ -28,7 +33,7 @@ import com.yong.taximeter.util.MeterUtil
 import com.yong.taximeter.util.PermissionUtil
 import kotlin.math.roundToInt
 
-class MeterActivity : AppCompatActivity() {
+class MeterActivity : AppCompatActivity(), CaulyAdViewListener {
     private lateinit var btnPrmNight: AppCompatButton
     private lateinit var btnPrmOutcity: AppCompatButton
     private lateinit var btnStart: AppCompatButton
@@ -175,7 +180,41 @@ class MeterActivity : AppCompatActivity() {
         if(pref.getBoolean("ad_remove", false)) {
             val caulyLayout = findViewById<CaulyAdView>(R.id.layout_meter_cauly)
             caulyLayout.visibility = View.GONE
+            return
         }
+
+        Logger.setLogLevel(Logger.LogLevel.Verbose)
+        val caulyInfo = CaulyAdInfoBuilder("ymwH9YIJ")
+            .bannerHeight(CaulyAdInfoBuilder.FIXED)
+            .enableDefaultBannerAd(true)
+            .effect("TopSlide")
+            .setBannerSize(320, 50)
+            .build()
+
+        val caulyView = CaulyAdView(this)
+        caulyView.setAdInfo(caulyInfo)
+        caulyView.setAdViewListener(this)
+
+        val caulyLayout = findViewById<View>(R.id.layout_meter_cauly) as RelativeLayout
+        val caulyLayoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
+        caulyLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+        caulyLayout.addView(caulyView)
+    }
+
+    override fun onReceiveAd(p0: CaulyAdView?, p1: Boolean) {
+        Log.d("CaulyExample", "banner AD received.")
+    }
+
+    override fun onFailedToReceiveAd(p0: CaulyAdView?, p1: Int, p2: String?) {
+        Log.d("CaulyExample", "failed to receive banner AD.")
+    }
+
+    override fun onShowLandingScreen(p0: CaulyAdView?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onCloseLandingScreen(p0: CaulyAdView?) {
+        TODO("Not yet implemented")
     }
 
     private fun updateView() {
