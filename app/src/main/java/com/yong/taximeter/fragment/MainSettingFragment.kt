@@ -71,7 +71,7 @@ class MainSettingFragment : PreferenceFragmentCompat() {
             }
         }
 
-    private val customCostDialogListener = DialogInterface.OnClickListener { dialogInterface, id ->
+    private val customCostDialogListener = DialogInterface.OnClickListener { _, id ->
         when(id) {
             DialogInterface.BUTTON_POSITIVE -> {
                 val locationKey = arrLocationKey[arrLocationValue.indexOf("custom")]
