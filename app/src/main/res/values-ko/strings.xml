@@ -11,6 +11,10 @@
     <string name="btn_meter_start">주행 시작</string>
     <string name="btn_meter_stop">주행 종료</string>
 
+    <string name="dialog_custom_title">요금제 직접 설정</string>
+    <string name="dialog_custom_btn_ok">완료</string>
+    <string name="dialog_custom_btn_cancel">취소</string>
+
     <string name="firebase_toast_fail">요금정보 DB의 최신버전을 확인하지 못했습니다.</string>
     <string name="firebase_toast_update">요금정보 DB를 최신버전으로 업데이트하였습니다.</string>
 
@@ -33,6 +37,7 @@
     <string name="noti_channel_title">택시미터기 동작 알림</string>
     <string name="noti_service_content">현재 요금 : %,d원 / 현재 속도 : %.1fkm/h / 주행 거리 : %.1fkm</string>
     <string name="noti_service_title">택시미터기가 동작중입니다.</string>
+    <string name="noti_toast_custom_cost_error">입력값이 너무 크거나 올바르지 않습니다.</string>
     <string name="noti_toast_night_prm_info">야간할증은 정해진 시간에만 적용됩니다.</string>
     <string name="noti_toast_no_permission">위치권한이 부여되지 않았습니다. 미터기 기능의 동작을 위해 부여해주세요.</string>
     <string name="noti_toast_no_notification">알림권한이 부여되지 않았습니다. 백그라운드 동작이 불안정할 수 있습니다.</string>

@@ -11,6 +11,10 @@
     <string name="btn_meter_start">Start Driving</string>
     <string name="btn_meter_stop">Stop Driving</string>
 
+    <string name="dialog_custom_title">Custom Cost</string>
+    <string name="dialog_custom_btn_ok">Done</string>
+    <string name="dialog_custom_btn_cancel">Cancel</string>
+
     <string name="firebase_toast_fail">Failed to get Cost DB Version</string>
     <string name="firebase_toast_update">Updated Cost DB to Latest</string>
 
@@ -33,6 +37,7 @@
     <string name="noti_channel_title">Running Notification</string>
     <string name="noti_service_content">Cost : %,d Won / Current Speed : %.1fkm/h / Driven Distance : %.1fkm</string>
     <string name="noti_service_title">Taxi Meter is Running</string>
+    <string name="noti_toast_custom_cost_error">Input Value has Error or too Large</string>
     <string name="noti_toast_night_prm_info">Night Premium will be applied only at certain time.</string>
     <string name="noti_toast_no_permission">Location Permission is not Granted. Please Grant for Meter.</string>
     <string name="noti_toast_no_notification">Without Notification, Background Runtime might be unstable.</string>
