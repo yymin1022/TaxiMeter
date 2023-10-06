@@ -50,6 +50,11 @@
             android:summary="@string/pref_summary_developer_github"/>
 
         <Preference
+            android:key="pref_info_developer_instagram"
+            android:title="@string/pref_title_developer_instagram"
+            android:summary="@string/pref_summary_developer_instagram"/>
+
+        <Preference
             android:key="pref_info_privacy_policy"
             android:title="@string/pref_title_privacy_policy"
             android:summary="@string/pref_summary_privacy_policy"/>

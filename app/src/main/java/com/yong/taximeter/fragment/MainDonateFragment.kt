@@ -24,7 +24,9 @@ import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.PurchasesUpdatedListener
 import com.android.billingclient.api.QueryProductDetailsParams
+import com.android.billingclient.api.QueryPurchaseHistoryParams
 import com.android.billingclient.api.consumePurchase
+import com.android.billingclient.api.queryPurchaseHistory
 import com.yong.taximeter.R
 import com.yong.taximeter.util.Util
 import kotlinx.coroutines.CoroutineScope
@@ -138,19 +140,39 @@ class MainDonateFragment : Fragment() {
 
         billingClient.launchBillingFlow(requireActivity(), billingFlowParams)
     }
-    private suspend fun consumePurchase(purchase: Purchase) {
-        if(purchase.products[0].equals("ad_remove")) {
-            val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
-            val prefEd = pref.edit()
-            prefEd.putBoolean("ad_remove", true)
-            prefEd.apply()
-        } else {
-            val consumeParams =
-                ConsumeParams.newBuilder()
-                    .setPurchaseToken(purchase.purchaseToken)
-                    .build()
-            withContext(Dispatchers.IO) {
-                billingClient.consumePurchase(consumeParams)
+    private fun consumePurchase(purchase: Purchase) {
+        purchase.products.forEach { productID ->
+            if(productID.equals("ad_remove")) {
+                val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                val prefEd = pref.edit()
+                prefEd.putBoolean("ad_remove", true)
+                prefEd.apply()
+            }
+        }
+
+        val consumeParams =
+            ConsumeParams.newBuilder()
+                .setPurchaseToken(purchase.purchaseToken)
+                .build()
+        CoroutineScope(Dispatchers.IO).launch {
+            billingClient.consumePurchase(consumeParams)
+        }
+    }
+
+    private fun queryLastPurchase() {
+        val params = QueryPurchaseHistoryParams.newBuilder().setProductType(ProductType.INAPP)
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val purchaseHistoryResult = billingClient.queryPurchaseHistory(params.build())
+            purchaseHistoryResult.purchaseHistoryRecordList?.forEach { purchaseHistoryRecord ->
+                purchaseHistoryRecord.products.forEach { productID ->
+                    if(productID.equals("ad_remove")){
+                        val pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                        val prefEd = pref.edit()
+                        prefEd.putBoolean("ad_remove", true)
+                        prefEd.apply()
+                    }
+                }
             }
         }
     }
@@ -159,11 +181,9 @@ class MainDonateFragment : Fragment() {
         if(billingResult.responseCode == BillingResponseCode.OK && purchases != null) {
             purchases.forEach { purchase ->
                 Toast.makeText(requireContext(), getString(R.string.noti_toast_purchase_success), Toast.LENGTH_SHORT).show()
-                CoroutineScope(Dispatchers.IO).launch {
-                    consumePurchase(purchase)
-                }
+                consumePurchase(purchase)
             }
-        } else if(billingResult.responseCode == BillingResponseCode.ITEM_ALREADY_OWNED && purchases != null) {
+        } else if(billingResult.responseCode == BillingResponseCode.ITEM_ALREADY_OWNED) {
             Toast.makeText(requireContext(), getString(R.string.noti_toast_purchase_already), Toast.LENGTH_SHORT).show()
         } else if(billingResult.responseCode == BillingResponseCode.USER_CANCELED) {
             Toast.makeText(requireContext(), getString(R.string.noti_toast_purchase_canceled), Toast.LENGTH_SHORT).show()
@@ -171,6 +191,8 @@ class MainDonateFragment : Fragment() {
             Toast.makeText(requireContext(), String.format(getString(R.string.noti_toast_purchase_error, billingResult.responseCode, billingResult.debugMessage)), Toast.LENGTH_SHORT).show()
             Log.e("PURCHASE_UPDATE", billingResult.debugMessage)
         }
+
+        queryLastPurchase()
     }
 
     private val btnListener = View.OnClickListener { view ->

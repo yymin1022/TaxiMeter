@@ -1,11 +1,15 @@
 package com.yong.taximeter.fragment
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener
 import android.net.Uri
 import android.os.Bundle
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
@@ -17,6 +21,7 @@ const val PREF_KEY_INFO_COST = "pref_info_cost"
 const val PREF_KEY_INFO_VERSION = "pref_info_version"
 class MainSettingFragment : PreferenceFragmentCompat() {
     private lateinit var pref: SharedPreferences
+    private lateinit var prefEdit: SharedPreferences.Editor
     private lateinit var arrLocationKey: Array<String>
     private lateinit var arrLocationValue: Array<String>
     private lateinit var arrThemeKey: Array<String>
@@ -30,12 +35,14 @@ class MainSettingFragment : PreferenceFragmentCompat() {
         arrThemeKey = resources.getStringArray(R.array.pref_theme)
         arrThemeValue = resources.getStringArray(R.array.pref_theme_value)
 
-        findPreference<Preference>("pref_info_developer_blog")!!.setOnPreferenceClickListener(prefClickListener)
-        findPreference<Preference>("pref_info_developer_github")!!.setOnPreferenceClickListener(prefClickListener)
-        findPreference<Preference>("pref_info_privacy_policy")!!.setOnPreferenceClickListener(prefClickListener)
+        findPreference<Preference>("pref_info_developer_blog")!!.onPreferenceClickListener = prefClickListener
+        findPreference<Preference>("pref_info_developer_github")!!.onPreferenceClickListener = prefClickListener
+        findPreference<Preference>("pref_info_developer_instagram")!!.onPreferenceClickListener = prefClickListener
+        findPreference<Preference>("pref_info_privacy_policy")!!.onPreferenceClickListener = prefClickListener
 
         pref = PreferenceManager.getDefaultSharedPreferences(requireContext())
         pref.registerOnSharedPreferenceChangeListener(prefListener)
+        prefEdit = pref.edit()
 
         initSummary()
     }
@@ -45,9 +52,20 @@ class MainSettingFragment : PreferenceFragmentCompat() {
             when(key) {
                 PREF_KEY_LOCATION -> {
                     val locationValue = sharedPreferences.getString(key, "seoul")!!
-                    val locationKey = arrLocationKey[arrLocationValue.indexOf(locationValue)]
-                    updateCostInfo(locationValue)
-                    updateSummary(key, locationKey)
+
+                    if(locationValue == "custom"){
+
+                        val dialogBuilder = AlertDialog.Builder(requireContext())
+                        dialogBuilder.setTitle(getString(R.string.dialog_custom_title))
+                        dialogBuilder.setView(R.layout.dialog_custom_cost)
+                        dialogBuilder.setPositiveButton(getString(R.string.dialog_custom_btn_ok), customCostDialogListener)
+                        dialogBuilder.setNegativeButton(getString(R.string.dialog_custom_btn_cancel), customCostDialogListener)
+                        dialogBuilder.show()
+                    }else{
+                        val locationKey = arrLocationKey[arrLocationValue.indexOf(locationValue)]
+                        updateCostInfo(locationValue)
+                        updateSummary(key, locationKey)
+                    }
                 }
 
                 PREF_KEY_THEME -> {
@@ -55,6 +73,51 @@ class MainSettingFragment : PreferenceFragmentCompat() {
                 }
             }
         }
+
+    private val customCostDialogListener = DialogInterface.OnClickListener { dialogInterface, id ->
+        var locationValue = "custom"
+        when(id) {
+            DialogInterface.BUTTON_POSITIVE -> {
+                val inputBase = (dialogInterface as AlertDialog).findViewById<EditText>(R.id.input_custom_dialog_base)
+                val inputBaseDistance = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_base_distance)
+                val inputCostDistance = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_distance)
+                val inputCostTime = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_time)
+                val inputOutcityPremium = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_premium_outcity)
+                val inputNightPremium = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_premium_night)
+                val inputNightPremiumStart = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_premium_night_start)
+                val inputNightPremiumEnd = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_premium_night_end)
+
+                try {
+                    val prefCost = requireContext().getSharedPreferences("pref_cost_custom", Context.MODE_PRIVATE)
+                    val prefEditCost = prefCost.edit()
+
+                    prefEditCost.putInt("cost_base", inputBase!!.text.toString().toInt())
+                    prefEditCost.putInt("dist_base", inputBaseDistance!!.text.toString().toInt())
+                    prefEditCost.putInt("cost_run_per", inputCostDistance!!.text.toString().toInt())
+                    prefEditCost.putInt("cost_time_per", inputCostTime!!.text.toString().toInt())
+                    prefEditCost.putInt("perc_city", inputOutcityPremium!!.text.toString().toInt())
+                    prefEditCost.putInt("perc_night_1", inputNightPremium!!.text.toString().toInt())
+                    prefEditCost.putInt("perc_night_2", inputNightPremium.text.toString().toInt())
+                    prefEditCost.putInt("perc_night_start_1", inputNightPremiumStart!!.text.toString().toInt())
+                    prefEditCost.putInt("perc_night_start_2", inputNightPremiumStart.text.toString().toInt())
+                    prefEditCost.putInt("perc_night_end_1", inputNightPremiumEnd!!.text.toString().toInt())
+                    prefEditCost.putInt("perc_night_end_2", inputNightPremiumEnd.text.toString().toInt())
+                    prefEditCost.apply()
+                } catch(e: Exception) {
+                    Toast.makeText(requireContext(), getString(R.string.noti_toast_custom_cost_error), Toast.LENGTH_LONG).show()
+                    locationValue = "seoul"
+                    prefEdit.putString(PREF_KEY_LOCATION, locationValue)
+                    prefEdit.apply()
+                }
+
+                val locationKey = arrLocationKey[arrLocationValue.indexOf(locationValue)]
+                updateCostInfo(locationValue)
+                updateSummary(PREF_KEY_LOCATION, locationKey)
+            }
+
+            DialogInterface.BUTTON_NEGATIVE -> {}
+        }
+    }
 
     private val prefClickListener = Preference.OnPreferenceClickListener { preference ->
         when(preference.key) {
@@ -64,6 +127,10 @@ class MainSettingFragment : PreferenceFragmentCompat() {
 
             "pref_info_developer_github" -> {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/yymin1022")))
+            }
+
+            "pref_info_developer_instagram" -> {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://instagram.com/useful_min")))
             }
 
             "pref_info_privacy_policy" -> {

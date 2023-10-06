@@ -11,6 +11,18 @@
     <string name="btn_meter_start">주행 시작</string>
     <string name="btn_meter_stop">주행 종료</string>
 
+    <string name="dialog_custom_title">요금제 직접 설정</string>
+    <string name="dialog_custom_btn_ok">완료</string>
+    <string name="dialog_custom_btn_cancel">취소</string>
+    <string name="dialog_custom_hint_base">기본요금</string>
+    <string name="dialog_custom_hint_base_distance">기본요금 주행거리 (미터)</string>
+    <string name="dialog_custom_hint_cost_per_distance">거리요금 기준 거리 (미타)</string>
+    <string name="dialog_custom_hint_cost_per_time">시간요금 기준 시간 (초)</string>
+    <string name="dialog_custom_hint_premium_outcity">시외할증 비율</string>
+    <string name="dialog_custom_hint_premium_night">야간할증 비율</string>
+    <string name="dialog_custom_hint_premium_night_start">야간할증 시작 (24시간 단위)</string>
+    <string name="dialog_custom_hint_premium_night_end">야간할증 종료 (24시간 단위)</string>
+
     <string name="firebase_toast_fail">요금정보 DB의 최신버전을 확인하지 못했습니다.</string>
     <string name="firebase_toast_update">요금정보 DB를 최신버전으로 업데이트하였습니다.</string>
 
@@ -33,10 +45,12 @@
     <string name="noti_channel_title">택시미터기 동작 알림</string>
     <string name="noti_service_content">현재 요금 : %,d원 / 현재 속도 : %.1fkm/h / 주행 거리 : %.1fkm</string>
     <string name="noti_service_title">택시미터기가 동작중입니다.</string>
+    <string name="noti_toast_custom_cost_error">입력값이 너무 크거나 올바르지 않습니다.</string>
     <string name="noti_toast_night_prm_info">야간할증은 정해진 시간에만 적용됩니다.</string>
     <string name="noti_toast_no_permission">위치권한이 부여되지 않았습니다. 미터기 기능의 동작을 위해 부여해주세요.</string>
     <string name="noti_toast_no_notification">알림권한이 부여되지 않았습니다. 백그라운드 동작이 불안정할 수 있습니다.</string>
-    <string name="noti_toast_purchase_already">이미 구매된 항목입니다. 개발자에게 문의해주세요.</string>
+    <string name="noti_toast_purchase_adremove">광고제거 구매가 확인되어, 광고제거가 적용되었습니다.</string>
+    <string name="noti_toast_purchase_already">이미 구매된 항목입니다.</string>
     <string name="noti_toast_purchase_canceled">결제가 취소되었습니다.</string>
     <string name="noti_toast_purchase_error">Error %d : %s</string>
     <string name="noti_toast_purchase_success">결제가 완료되었습니다. 감사합니다!</string>
@@ -49,10 +63,12 @@
     <string name="pref_summary_developer">중앙대학교 소프트웨어학부 2019</string>
     <string name="pref_summary_developer_blog">https://dev-lr.com</string>
     <string name="pref_summary_developer_github">https://github.com/yymin1022</string>
+    <string name="pref_summary_developer_instagram">https://instagram.com/useful_min</string>
     <string name="pref_summary_privacy_policy">https://defcon.or.kr/privacy</string>
     <string name="pref_title_developer">Dev. LR</string>
     <string name="pref_title_developer_blog">개발자 블로그</string>
     <string name="pref_title_developer_github">개발자 GitHub</string>
+    <string name="pref_title_developer_instagram">개발자 Instagram</string>
     <string name="pref_title_cost">요금 정보</string>
     <string name="pref_title_location">위치</string>
     <string name="pref_title_privacy_policy">개인정보 처리방침</string>
@@ -62,6 +78,7 @@
     <string name="location_busan">부산광역시</string>
     <string name="location_chungbuk">충청북도</string>
     <string name="location_chungnam">충청남도</string>
+    <string name="location_custom">직접 설정</string>
     <string name="location_daegu">대구광역시</string>
     <string name="location_daejeon">대전광역시</string>
     <string name="location_gangwon">강원도</string>

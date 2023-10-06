@@ -36,7 +36,7 @@
 
         <activity
             android:name=".activity.MeterActivity"
-            android:exported="false" />
+            android:exported="true" />
 
         <activity
             android:name=".activity.WelcomeActivity"

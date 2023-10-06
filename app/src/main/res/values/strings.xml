@@ -11,6 +11,18 @@
     <string name="btn_meter_start">Start Driving</string>
     <string name="btn_meter_stop">Stop Driving</string>
 
+    <string name="dialog_custom_title">Custom Cost</string>
+    <string name="dialog_custom_btn_ok">Done</string>
+    <string name="dialog_custom_btn_cancel">Cancel</string>
+    <string name="dialog_custom_hint_base">Base Cost</string>
+    <string name="dialog_custom_hint_base_distance">Distance for Base Cost (Meter)</string>
+    <string name="dialog_custom_hint_cost_per_distance">Distance Cost per (Meter)</string>
+    <string name="dialog_custom_hint_cost_per_time">Time Cost per (Seconds)</string>
+    <string name="dialog_custom_hint_premium_outcity">Outcity Premium Percentage</string>
+    <string name="dialog_custom_hint_premium_night">Night Premium Percentage</string>
+    <string name="dialog_custom_hint_premium_night_start">Night Premium Start Hour (24-Format)</string>
+    <string name="dialog_custom_hint_premium_night_end">Night Premium End Hour (24-Format)</string>
+
     <string name="firebase_toast_fail">Failed to get Cost DB Version</string>
     <string name="firebase_toast_update">Updated Cost DB to Latest</string>
 
@@ -33,9 +45,11 @@
     <string name="noti_channel_title">Running Notification</string>
     <string name="noti_service_content">Cost : %,d Won / Current Speed : %.1fkm/h / Driven Distance : %.1fkm</string>
     <string name="noti_service_title">Taxi Meter is Running</string>
+    <string name="noti_toast_custom_cost_error">Input Value has Error or too Large</string>
     <string name="noti_toast_night_prm_info">Night Premium will be applied only at certain time.</string>
     <string name="noti_toast_no_permission">Location Permission is not Granted. Please Grant for Meter.</string>
     <string name="noti_toast_no_notification">Without Notification, Background Runtime might be unstable.</string>
+    <string name="noti_toast_purchase_adremove">Advertise Remove is Applied</string>
     <string name="noti_toast_purchase_already">Already Owned Item!</string>
     <string name="noti_toast_purchase_canceled">Canceled Purchase</string>
     <string name="noti_toast_purchase_error">Error %d : %s</string>
@@ -49,10 +63,12 @@
     <string name="pref_summary_developer">CAU CSE 2019</string>
     <string name="pref_summary_developer_blog">https://dev-lr.com</string>
     <string name="pref_summary_developer_github">https://github.com/yymin1022</string>
+    <string name="pref_summary_developer_instagram">https://instagram.com/useful_min</string>
     <string name="pref_summary_privacy_policy">https://defcon.or.kr/privacy</string>
     <string name="pref_title_developer">Dev. LR</string>
     <string name="pref_title_developer_blog">Developer Blog</string>
     <string name="pref_title_developer_github">Developer GitHub</string>
+    <string name="pref_title_developer_instagram">Developer Instagram</string>
     <string name="pref_title_cost">Cost Info</string>
     <string name="pref_title_location">Location</string>
     <string name="pref_title_privacy_policy">Privacy Policy</string>
@@ -62,6 +78,7 @@
     <string name="location_busan">Busan</string>
     <string name="location_chungbuk">Chungbuk</string>
     <string name="location_chungnam">Chungnam</string>
+    <string name="location_custom">Custom</string>
     <string name="location_daegu">Daegu</string>
     <string name="location_daejeon">Daejeon</string>
     <string name="location_gangwon">Gangwon</string>

@@ -201,15 +201,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_meter_premium_night" />
 
-    <com.fsn.cauly.CaulyAdView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:id="@+id/layout_meter_cauly"
-        app:appcode="ymwH9YIJ"
-        app:bannerHeight="Fixed"
-        app:dynamicReloadInterval="true"
-        app:effect="BottomSlide"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
