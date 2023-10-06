@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener
 import android.net.Uri
 import android.os.Bundle
+import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -52,6 +53,7 @@ class MainSettingFragment : PreferenceFragmentCompat() {
                     val locationValue = sharedPreferences.getString(key, "seoul")!!
 
                     if(locationValue == "custom"){
+
                         val dialogBuilder = AlertDialog.Builder(requireContext())
                         dialogBuilder.setTitle("Custom Cost Setup")
                         dialogBuilder.setView(R.layout.dialog_custom_cost)
@@ -71,9 +73,34 @@ class MainSettingFragment : PreferenceFragmentCompat() {
             }
         }
 
-    private val customCostDialogListener = DialogInterface.OnClickListener { _, id ->
+    private val customCostDialogListener = DialogInterface.OnClickListener { dialogInterface, id ->
         when(id) {
             DialogInterface.BUTTON_POSITIVE -> {
+                val inputBase = (dialogInterface as AlertDialog).findViewById<EditText>(R.id.input_custom_dialog_base)
+                val inputBaseDistance = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_base_distance)
+                val inputCostDistance = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_distance)
+                val inputCostTime = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_time)
+                val inputOutcityPremium = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_premium_outcity)
+                val inputNightPremium = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_premium_night)
+                val inputNightPremiumStart = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_premium_night_start)
+                val inputNightPremiumEnd = dialogInterface.findViewById<EditText>(R.id.input_custom_dialog_premium_night_end)
+
+                val prefCost = requireContext().getSharedPreferences("pref_cost_custom", Context.MODE_PRIVATE)
+                val prefEditCost = prefCost.edit()
+
+                prefEditCost.putInt("cost_base", inputBase!!.text.toString().toInt())
+                prefEditCost.putInt("dist_base", inputBaseDistance!!.text.toString().toInt())
+                prefEditCost.putInt("cost_run_per", inputCostDistance!!.text.toString().toInt())
+                prefEditCost.putInt("cost_time_per", inputCostTime!!.text.toString().toInt())
+                prefEditCost.putInt("perc_city", inputOutcityPremium!!.text.toString().toInt())
+                prefEditCost.putInt("perc_night_1", inputNightPremium!!.text.toString().toInt())
+                prefEditCost.putInt("perc_night_2", inputNightPremium.text.toString().toInt())
+                prefEditCost.putInt("perc_night_start_1", inputNightPremiumStart!!.text.toString().toInt())
+                prefEditCost.putInt("perc_night_start_2", inputNightPremiumStart.text.toString().toInt())
+                prefEditCost.putInt("perc_night_end_1", inputNightPremiumEnd!!.text.toString().toInt())
+                prefEditCost.putInt("perc_night_end_2", inputNightPremiumEnd.text.toString().toInt())
+                prefEditCost.apply()
+
                 val locationKey = arrLocationKey[arrLocationValue.indexOf("custom")]
                 updateCostInfo("custom")
                 updateSummary(PREF_KEY_LOCATION, locationKey)}
