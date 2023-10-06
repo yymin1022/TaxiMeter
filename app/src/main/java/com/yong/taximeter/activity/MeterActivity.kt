@@ -178,12 +178,11 @@ class MeterActivity : AppCompatActivity(), CaulyAdViewListener {
     private fun initCauly() {
         val pref = PreferenceManager.getDefaultSharedPreferences(applicationContext)
         if(pref.getBoolean("ad_remove", false)) {
-            val caulyLayout = findViewById<CaulyAdView>(R.id.layout_meter_cauly)
+            val caulyLayout = findViewById<RelativeLayout>(R.id.layout_meter_cauly)
             caulyLayout.visibility = View.GONE
             return
         }
 
-        Logger.setLogLevel(Logger.LogLevel.Verbose)
         val caulyInfo = CaulyAdInfoBuilder("ymwH9YIJ")
             .bannerHeight(CaulyAdInfoBuilder.FIXED)
             .enableDefaultBannerAd(true)
