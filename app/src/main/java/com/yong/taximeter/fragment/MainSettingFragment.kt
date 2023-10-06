@@ -75,6 +75,7 @@ class MainSettingFragment : PreferenceFragmentCompat() {
         }
 
     private val customCostDialogListener = DialogInterface.OnClickListener { dialogInterface, id ->
+        var locationValue = "custom"
         when(id) {
             DialogInterface.BUTTON_POSITIVE -> {
                 val inputBase = (dialogInterface as AlertDialog).findViewById<EditText>(R.id.input_custom_dialog_base)
@@ -102,13 +103,16 @@ class MainSettingFragment : PreferenceFragmentCompat() {
                     prefEditCost.putInt("perc_night_end_1", inputNightPremiumEnd!!.text.toString().toInt())
                     prefEditCost.putInt("perc_night_end_2", inputNightPremiumEnd.text.toString().toInt())
                     prefEditCost.apply()
+
                 } catch(e: Exception) {
                     Toast.makeText(requireContext(), getString(R.string.noti_toast_custom_cost_error), Toast.LENGTH_LONG).show()
+                    locationValue = "seoul"
                 }
 
-                val locationKey = arrLocationKey[arrLocationValue.indexOf("custom")]
-                updateCostInfo("custom")
-                updateSummary(PREF_KEY_LOCATION, locationKey)}
+                val locationKey = arrLocationKey[arrLocationValue.indexOf(locationValue)]
+                updateCostInfo(locationValue)
+                updateSummary(PREF_KEY_LOCATION, locationKey)
+            }
 
             DialogInterface.BUTTON_NEGATIVE -> {}
         }
